@@ -13,8 +13,8 @@ import RealmSwift
 
 class ViewController: UIViewController {
 
-    var username: String = "cc"//"realmuser1@realm.com"
-    var password: String = "cc"//"realm4000"
+    var username: String = "cc"//"realm@realm.com"//"realmuser1@realm.com"
+    var password: String = "cc"//"realm"//"realm4000"
     var items = List<Task>()
     var itemsdogs = List<Dog>()
     var realm: Realm!
@@ -96,6 +96,8 @@ class ViewController: UIViewController {
         
         
         //user.logOut()
+        //updateList()
+        grantaccess()
     
     }
     
@@ -207,13 +209,29 @@ class ViewController: UIViewController {
     
     //update local list from realm server
     func updateList() {
-        if self.items.realm == nil, let list = self.realm.objects(TaskList.self).first {
-            self.items = list.items
-            print(" LOCAL LIST : \(self.items.count) elements")
+         let realm = try! Realm()
+        
+        if  let list = realm.objects(Dog.self).sorted(byKeyPath: "name").first
+            /*TaskList.self*/
+        {
+            self.itemsdogs.append(list) //.items
+            print(" LOCAL LIST : \(self.itemsdogs.count) elements")
         }
         //self.tableView.reloadData()
     }
     //grant access
+    func grantaccess(){
+        
+        let permission = SyncPermissionValue(realmPath: "/myyrealmtasks",userID: "realmuser1@realm.com", // To apply to all users
+            accessLevel: .read)
+        SyncUser.current?.applyPermission(permission) { error in
+            if let error = error {
+                // handle error
+                self.showError(title: "Unable to grant permission", message: error.localizedDescription)
+                return
+            }
+    }
+    }
     
     func updateList2() {
         print("first empty in uptadelist2")

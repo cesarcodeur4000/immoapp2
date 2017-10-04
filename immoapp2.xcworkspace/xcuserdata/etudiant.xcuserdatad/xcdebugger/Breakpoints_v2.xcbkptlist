@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "immoapp2/ViewController.swift"
-            timestampString = "528804335.930804"
+            timestampString = "528815756.620826"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "actbutton(_:)"
             landmarkType = "7">
          </BreakpointContent>
