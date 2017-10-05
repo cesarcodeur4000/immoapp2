@@ -22,4 +22,6 @@ struct Constants {
     static let syncAuthURL = URL(string: "http://\(syncHost):9080")!
     
     static let appID = Bundle.main.bundleIdentifier!
+    
+    static let kLoginToMainView = "loginToMainSegue"
 }
