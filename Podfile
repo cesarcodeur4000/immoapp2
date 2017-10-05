@@ -7,4 +7,5 @@ target 'immoapp2' do
 
   # Pods for immoapp2
 	pod 'RealmSwift'
+    pod 'RealmLoginKit'
 end
