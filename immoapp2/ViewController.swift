@@ -13,8 +13,8 @@ import RealmSwift
 
 class ViewController: UIViewController {
 
-    var username: String = "cc"//"realm@realm.com"//"realmuser1@realm.com"
-    var password: String = "cc"//"realm"//"realm4000"
+    var username: String = "realmuser1@realm.com"//"cc"//"realm@realm.com"
+    var password: String = "realm4000"//"cc"//"realm"//
     var items = List<Task>()
     var itemsdogs = List<Dog>()
     var realm: Realm!
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         
         //user.logOut()
         //updateList()
-        grantaccess()
+        //grantaccess()
     
     }
     
@@ -222,8 +222,9 @@ class ViewController: UIViewController {
     //grant access
     func grantaccess(){
         
-        let permission = SyncPermissionValue(realmPath: "/myyrealmtasks",userID: "realmuser1@realm.com", // To apply to all users
-            accessLevel: .read)
+        let permission = SyncPermissionValue(realmPath: realm.configuration.syncConfiguration!.realmURL.path ,userID: "*", // To apply to all users
+            accessLevel: .write)
+        print("REALM PATH=",realm.configuration.syncConfiguration!.realmURL.path)
         SyncUser.current?.applyPermission(permission) { error in
             if let error = error {
                 // handle error
