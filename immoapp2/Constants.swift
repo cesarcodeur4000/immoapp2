@@ -23,5 +23,8 @@ struct Constants {
     
     static let appID = Bundle.main.bundleIdentifier!
     
+    
+    //SEGUE IDENTIFIERS
     static let kLoginToMainView = "loginToMainSegue"
+    static let kExitToLoginViewSegue = "mainToLoginSegue"
 }

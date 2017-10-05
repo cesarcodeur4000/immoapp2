@@ -22,10 +22,10 @@ class AppLoginViewController: UIViewController {
         //MARK:- Config du REalmLoginController
         loginViewController = LoginViewController(style: .lightOpaque)
         loginViewController.isServerURLFieldHidden = false
-        loginViewController.isRegistering = true
+        //loginViewController.isRegistering = true
         loginViewController.isCopyrightLabelHidden = true
         loginViewController.rememberLogin = false
-        
+        loginViewController.allowsNewAccountRegistration = false
         
         
         

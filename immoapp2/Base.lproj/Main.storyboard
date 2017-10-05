@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="57" y="861"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="Rhk-i8-y1B">
             <objects>
-                <viewController id="0mx-ua-8LO" sceneMemberID="viewController">
+                <viewController id="0mx-ua-8LO" customClass="MainViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hWg-RX-duf"/>
                         <viewControllerLayoutGuide type="bottom" id="Oyn-g4-oaE"/>
@@ -89,12 +89,25 @@
                     <view key="view" contentMode="scaleToFill" id="aO0-ji-vgq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR5-MN-TmN">
+                                <rect key="frame" x="154" y="266" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="LOGOUT"/>
+                                <connections>
+                                    <action selector="handleLogoutPressedWithSender:" destination="0mx-ua-8LO" eventType="touchUpInside" id="qnQ-B9-irB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <segue destination="Dzo-Zf-p0M" kind="show" identifier="mainToLoginSegue" id="des-Eh-4Rc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYO-lh-4bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1103" y="850"/>
+            <point key="canvasLocation" x="1101.5999999999999" y="849.62518740629696"/>
         </scene>
     </scenes>
 </document>
