@@ -11,7 +11,7 @@ import Realm
 import RealmSwift
 
 
-class ViewController: UIViewController {
+class TestViewController: UIViewController {
 
     var username: String = "realmuser1@realm.com"//"cc"//"realm@realm.com"
     var password: String = "realm4000"//"cc"//"realm"//
@@ -70,7 +70,7 @@ class ViewController: UIViewController {
             let realm = try! Realm()
         do { try realm.write {
                             let myDog = Dog()
-                            myDog.name = "Rex888"
+                            myDog.name = "bRex888"
                             myDog.age = 10
                             print(myDog.age,myDog.name)
                             realm.add(myDog)
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
         
         
         //user.logOut()
-        //updateList()
+        updateList()
         //grantaccess()
     
     }
@@ -210,13 +210,21 @@ class ViewController: UIViewController {
     //update local list from realm server
     func updateList() {
          let realm = try! Realm()
+        //var dogs: Results<Dog>?
+        let dogs: Results<Dog> = { realm.objects(Dog.self) }()
         
-        if  let list = realm.objects(Dog.self).sorted(byKeyPath: "name").first
+            for d in dogs{
+                
+                print(d.name,d.age)
+            }
+            
+        
+       // if  let list = realm.objects(Dog.self).sorted(byKeyPath: "name").first
             /*TaskList.self*/
-        {
-            self.itemsdogs.append(list) //.items
-            print(" LOCAL LIST : \(self.itemsdogs.count) elements")
-        }
+        //{
+        //    self.itemsdogs.append(list) //.items
+         //   print(" LOCAL LIST : \(self.itemsdogs.count) elements")
+       // }
         //self.tableView.reloadData()
     }
     //grant access
@@ -283,5 +291,38 @@ class ViewController: UIViewController {
     
     
     }
+    
+    
+    //MARK:- logOut
+ 
+    
+    @IBAction func actLogOut(_ sender: Any) {
+        
+        let alert = UIAlertController(title: NSLocalizedString("Logout", comment: "Logout"), message: NSLocalizedString("Really Log Out?", comment: "Really Log Out?"), preferredStyle: .alert)
+        
+        // Logout button
+        let OKAction = UIAlertAction(title: NSLocalizedString("Logout", comment: "logout"), style: .default) { (action:UIAlertAction!) in
+            print("Logout button tapped");
+            //SyncUser.current?.logOut()
+            self.user.logOut()
+            //Now we need to segue to the login view controller
+           // self.performSegue(withIdentifier: Constants.kExitToLoginViewSegue, sender: self)
+        }
+        alert.addAction(OKAction)
+        
+        // Cancel button
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+            print("Cancel button tapped");
+        }
+        alert.addAction(cancelAction)
+        
+        // Present Dialog message
+        present(alert, animated: true, completion:nil)
+    }
+  
+        
+    
+    
+    
 }
 

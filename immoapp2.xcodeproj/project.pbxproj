@@ -10,13 +10,16 @@
 		E394060FA820373DB26EBB80 /* Pods_immoapp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEAD72BF81526F021A8A335 /* Pods_immoapp2.framework */; };
 		EC3BDC4E1F8627A800F6A5EB /* AppLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC4D1F8627A800F6A5EB /* AppLoginViewController.swift */; };
 		EC3BDC501F862AEA00F6A5EB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */; };
+		EC3BDC521F86453F00F6A5EB /* Main1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */; };
+		EC3BDC541F86592A00F6A5EB /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */; };
 		EC7D63261F83CA2800586292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63251F83CA2800586292 /* AppDelegate.swift */; };
-		EC7D63281F83CA2800586292 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63271F83CA2800586292 /* ViewController.swift */; };
+		EC7D63281F83CA2800586292 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63271F83CA2800586292 /* testViewController.swift */; };
 		EC7D632B1F83CA2800586292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7D63291F83CA2800586292 /* Main.storyboard */; };
 		EC7D632D1F83CA2800586292 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC7D632C1F83CA2800586292 /* Assets.xcassets */; };
 		EC7D63301F83CA2800586292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7D632E1F83CA2800586292 /* LaunchScreen.storyboard */; };
 		EC7D63381F83CF1A00586292 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63371F83CF1A00586292 /* Constants.swift */; };
 		EC7D633A1F83D08800586292 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63391F83D08800586292 /* Models.swift */; };
+		ECE35CB51F8661E000D88BDB /* MyIOSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,15 +27,18 @@
 		AD2533C3675973C16B804303 /* Pods-immoapp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-immoapp2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-immoapp2/Pods-immoapp2.debug.xcconfig"; sourceTree = "<group>"; };
 		EC3BDC4D1F8627A800F6A5EB /* AppLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoginViewController.swift; sourceTree = "<group>"; };
 		EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main1ViewController.swift; sourceTree = "<group>"; };
+		EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		EC7D63221F83CA2800586292 /* immoapp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = immoapp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7D63251F83CA2800586292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC7D63271F83CA2800586292 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC7D63271F83CA2800586292 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		EC7D632A1F83CA2800586292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC7D632C1F83CA2800586292 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC7D632F1F83CA2800586292 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC7D63311F83CA2800586292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC7D63371F83CF1A00586292 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EC7D63391F83D08800586292 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyIOSHelper.swift; sourceTree = "<group>"; };
 		FFEAD72BF81526F021A8A335 /* Pods_immoapp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_immoapp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,7 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				EC7D63251F83CA2800586292 /* AppDelegate.swift */,
-				EC7D63271F83CA2800586292 /* ViewController.swift */,
+				EC7D63271F83CA2800586292 /* testViewController.swift */,
 				EC7D63291F83CA2800586292 /* Main.storyboard */,
 				EC7D632C1F83CA2800586292 /* Assets.xcassets */,
 				EC7D632E1F83CA2800586292 /* LaunchScreen.storyboard */,
@@ -96,6 +102,9 @@
 				EC7D63391F83D08800586292 /* Models.swift */,
 				EC3BDC4D1F8627A800F6A5EB /* AppLoginViewController.swift */,
 				EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */,
+				EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */,
+				EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */,
+				ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */,
 			);
 			path = immoapp2;
 			sourceTree = "<group>";
@@ -235,11 +244,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC7D63281F83CA2800586292 /* ViewController.swift in Sources */,
+				ECE35CB51F8661E000D88BDB /* MyIOSHelper.swift in Sources */,
+				EC7D63281F83CA2800586292 /* testViewController.swift in Sources */,
 				EC7D63261F83CA2800586292 /* AppDelegate.swift in Sources */,
 				EC7D63381F83CF1A00586292 /* Constants.swift in Sources */,
 				EC3BDC501F862AEA00F6A5EB /* MainViewController.swift in Sources */,
 				EC3BDC4E1F8627A800F6A5EB /* AppLoginViewController.swift in Sources */,
+				EC3BDC541F86592A00F6A5EB /* RealmHelper.swift in Sources */,
+				EC3BDC521F86453F00F6A5EB /* Main1ViewController.swift in Sources */,
 				EC7D633A1F83D08800586292 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

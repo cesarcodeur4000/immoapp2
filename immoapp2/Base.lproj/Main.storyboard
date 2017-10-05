@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Dzo-Zf-p0M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Lz2-f8-KXm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Test View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TestViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -36,6 +36,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NQ-PP-vIz">
+                                <rect key="frame" x="136" y="453" width="64" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="LOGOUT"/>
+                                <connections>
+                                    <action selector="actLogOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5YZ-us-tKg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -71,12 +79,44 @@
             <objects>
                 <viewController storyboardIdentifier="loginToMainSegue" id="Dzo-Zf-p0M" customClass="AppLoginViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="0mx-ua-8LO" kind="show" identifier="loginToMainSegue" id="eom-JQ-fF7"/>
+                        <segue destination="iJ5-EF-zeV" kind="show" identifier="loginToMainSegue" id="wLB-SP-kc8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMY-UK-Cbm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57" y="861"/>
+        </scene>
+        <!--Main1 View Controller-->
+        <scene sceneID="iLh-Bc-2sX">
+            <objects>
+                <viewController id="iJ5-EF-zeV" customClass="Main1ViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r8p-In-UgI"/>
+                        <viewControllerLayoutGuide type="bottom" id="O5U-TO-rZA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0rV-Zq-fNA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQS-hz-I8y">
+                                <rect key="frame" x="163" y="224" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="LOGOUT"/>
+                                <connections>
+                                    <action selector="handleLogoutPressedWithSender:" destination="0mx-ua-8LO" eventType="touchUpInside" id="Ady-14-JBJ"/>
+                                    <action selector="handleLogoutPressedWithSender:" destination="iJ5-EF-zeV" eventType="touchUpInside" id="hvf-7J-V30"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.94671983569999996" blue="0.27368311210000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="Dzo-Zf-p0M" kind="show" identifier="mainToLoginSegue" id="Gol-v8-NAx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ry6-3o-TiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="839"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Rhk-i8-y1B">
@@ -101,13 +141,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <connections>
-                        <segue destination="Dzo-Zf-p0M" kind="show" identifier="mainToLoginSegue" id="des-Eh-4Rc"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="eck-Kp-sYg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYO-lh-4bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1101.5999999999999" y="849.62518740629696"/>
+            <point key="canvasLocation" x="1820" y="737"/>
         </scene>
     </scenes>
 </document>

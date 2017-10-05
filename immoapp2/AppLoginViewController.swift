@@ -20,7 +20,7 @@ class AppLoginViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         
         //MARK:- Config du REalmLoginController
-        loginViewController = LoginViewController(style: .lightOpaque)
+        loginViewController = LoginViewController(style: .lightTranslucent)
         loginViewController.isServerURLFieldHidden = false
         //loginViewController.isRegistering = true
         loginViewController.isCopyrightLabelHidden = true
@@ -51,6 +51,7 @@ class AppLoginViewController: UIViewController {
                             Realm.Configuration.defaultConfiguration = self.commonRealmConfig(user: SyncUser.current!)
                             self.loginViewController!.dismiss(animated: true, completion: nil)
                             self.performSegue(withIdentifier: Constants.kLoginToMainView, sender: nil)
+                            //return
                             
                         } else if let error = error {
                             print("An error occurred while logging in: \(error.localizedDescription)")
