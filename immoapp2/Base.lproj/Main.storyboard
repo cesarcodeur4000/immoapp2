@@ -66,10 +66,10 @@
             </objects>
             <point key="canvasLocation" x="57" y="146"/>
         </scene>
-        <!--Login View Controller-->
+        <!--App Login View Controller-->
         <scene sceneID="BwW-wa-51E">
             <objects>
-                <viewController storyboardIdentifier="loginToMainSegue" id="Dzo-Zf-p0M" customClass="LoginViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginToMainSegue" id="Dzo-Zf-p0M" customClass="AppLoginViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="0mx-ua-8LO" kind="show" identifier="loginToMainSegue" id="eom-JQ-fF7"/>
                     </connections>

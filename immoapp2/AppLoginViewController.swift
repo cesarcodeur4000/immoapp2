@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 import RealmLoginKit
 
-class LoginViewController: UIViewController {
+class AppLoginViewController: UIViewController {
     
     
     var loginViewController: LoginViewController!
@@ -18,9 +18,19 @@ class LoginViewController: UIViewController {
     var myIdentity = SyncUser.current?.identity!
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        //MARK:- Config du REalmLoginController
         loginViewController = LoginViewController(style: .lightOpaque)
         loginViewController.isServerURLFieldHidden = false
         loginViewController.isRegistering = true
+        loginViewController.isCopyrightLabelHidden = true
+        loginViewController.rememberLogin = false
+        
+        
+        
+        
+        
+        
         
         if (SyncUser.current != nil) {
             // yup - we've got a stored session, so just go right to the UITabView
@@ -36,9 +46,9 @@ class LoginViewController: UIViewController {
             loginViewController.loginSuccessfulHandler = { user in
                 DispatchQueue.main.async {
                     // this AsyncOpen call will open the described Realm and wait for it to download before calling its closure
-                    Realm.asyncOpen(configuration: commonRealmConfig(user: SyncUser.current!)) { realm, error in
+                    Realm.asyncOpen(configuration: self.commonRealmConfig(user: SyncUser.current!)) { realm, error in
                         if let realm = realm {
-                            Realm.Configuration.defaultConfiguration = commonRealmConfig(user: SyncUser.current!)
+                            Realm.Configuration.defaultConfiguration = self.commonRealmConfig(user: SyncUser.current!)
                             self.loginViewController!.dismiss(animated: true, completion: nil)
                             self.performSegue(withIdentifier: Constants.kLoginToMainView, sender: nil)
                             
@@ -55,7 +65,7 @@ class LoginViewController: UIViewController {
     }
     
     func commonRealmConfig(user: SyncUser) -> Realm.Configuration  {
-        let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: Constants.syncServerURL), objectTypes: [Person.self])
+        let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: Constants.syncServerURL!), objectTypes: [Dog.self])
         return config
     }
 
