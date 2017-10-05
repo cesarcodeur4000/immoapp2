@@ -65,5 +65,12 @@ final class Task: Object, CellPresentable {
     }
     
     
+}
+final class BienImmobilier: Object {
     
+    dynamic var name = ""
+    dynamic var longitude = 0.0
+    dynamic var latitude = 0.0
+    
+    dynamic var created = NSDate()
 }

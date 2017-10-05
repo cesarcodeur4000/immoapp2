@@ -17,6 +17,7 @@ class TestViewController: UIViewController {
     var password: String = "realm4000"//"cc"//"realm"//
     var items = List<Task>()
     var itemsdogs = List<Dog>()
+    var bims : Results<BienImmobilier>?
     var realm: Realm!
     var user: SyncUser!
     
@@ -97,6 +98,7 @@ class TestViewController: UIViewController {
         
         //user.logOut()
         updateList()
+        populateBienImmo()
         //grantaccess()
     
     }
@@ -112,7 +114,7 @@ class TestViewController: UIViewController {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             syncConfiguration: SyncConfiguration(user: user, realmURL: Constants.syncServerURL!),
             //objectTypes: [TaskListList.self, TaskList.self, Task.self]
-        objectTypes: [Dog.self]
+        objectTypes: [Dog.self,BienImmobilier.self]
         )
         
     }
@@ -226,6 +228,36 @@ class TestViewController: UIViewController {
          //   print(" LOCAL LIST : \(self.itemsdogs.count) elements")
        // }
         //self.tableView.reloadData()
+    }
+    
+    func populateBienImmo() {
+        let c = bims?.count ?? 0
+        if c == 0 { // 1
+            let realm = try! Realm()
+
+            try! realm.write() { // 2
+                
+                let defaultCategories: [(String,Double,Double)] =
+               [ ("Gîte-auberge Jacques Brel",  	4.3670995 , 	50.8515604),
+               ("Jeugdherberg Bruegel",	4.3511439,50.8419967),
+               ("Sleepwell Youth Hostel" , 	4.3578617 , 	50.8528656),
+               ("Centre Van Gogh" , 	4.368471 ,	50.854258),
+             ("Auberge Génération Europe" , 	4.3340299 , 50.8524651),
+                
+              ("Fontaines" , 	4.443791899999951 , 	50.8093405)]
+                for bi in defaultCategories { // 4
+                    let newbi = BienImmobilier()
+                    newbi.name = bi.0
+                    newbi.latitude = bi.2
+                        newbi.longitude = bi.1
+                    
+                    
+                    realm.add(newbi)
+                }
+            }
+            
+            bims = realm.objects(BienImmobilier.self) // 5
+        }
     }
     //grant access
     func grantaccess(){
