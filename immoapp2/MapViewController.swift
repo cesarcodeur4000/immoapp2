@@ -114,19 +114,19 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                 dequeuedView.annotation = annotation
                 pinView = dequeuedView
                 
-                //***
-                pinView.pinColor = .purple
-                //pinView.isDraggable = true
-                pinView.canShowCallout = true
-                pinView.animatesDrop = true
-                
-                let goButton = UIButton(type: UIButtonType.custom) as UIButton
-                goButton.frame.size.width = 44
-                goButton.frame.size.height = 44
-                goButton.backgroundColor = UIColor.purple
-                goButton.setImage(UIImage(named: "trash"), for: [.normal])
-                
-                pinView.leftCalloutAccessoryView = goButton
+//                //***
+//                pinView.pinColor = .purple
+//                //pinView.isDraggable = true
+//                pinView.canShowCallout = true
+//                pinView.animatesDrop = true
+//                
+//                let goButton = UIButton(type: UIButtonType.custom) as UIButton
+//                goButton.frame.size.width = 44
+//                goButton.frame.size.height = 44
+//                goButton.backgroundColor = UIColor.purple
+//                goButton.setImage(UIImage(named: "trash"), for: [.normal])
+//                
+//                pinView.leftCalloutAccessoryView = goButton
                 
                 
                 
@@ -146,7 +146,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                 goButton.frame.size.width = 44
                 goButton.frame.size.height = 44
                 goButton.backgroundColor = UIColor.purple
-                goButton.setImage(UIImage(named: "trash"), for: [.normal])
+                goButton.setImage(UIImage(named: "check-sign(1)"), for: [.normal])
                 
                 pinView.leftCalloutAccessoryView = goButton
                 
@@ -175,7 +175,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             return
         }
         print("PIN SELECTED2",annotation.title as? String as Any  )
-        
+        //perform segue
     }
     
     
