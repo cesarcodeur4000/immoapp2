@@ -136,6 +136,20 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                 
             }else{
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinId)
+                
+                pinView.pinColor = .purple
+                //pinView.isDraggable = true
+                pinView.canShowCallout = true
+                pinView.animatesDrop = true
+                
+                let goButton = UIButton(type: UIButtonType.custom) as UIButton
+                goButton.frame.size.width = 44
+                goButton.frame.size.height = 44
+                goButton.backgroundColor = UIColor.purple
+                goButton.setImage(UIImage(named: "trash"), for: [.normal])
+                
+                pinView.leftCalloutAccessoryView = goButton
+                
             }
             return pinView
         }
@@ -177,6 +191,12 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        if locationManager.allowsBackgroundLocationUpdates{
+            
+            locationManager.allowDeferredLocationUpdates(untilTraveled: CLLocationDistance(60), timeout: TimeInterval(60))
+        
+        }
         locationManager.requestAlwaysAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
