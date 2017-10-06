@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,6 +45,14 @@
                                     <action selector="actLogOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5YZ-us-tKg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wQ-kw-hm1">
+                                <rect key="frame" x="110" y="377" width="104" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="MAP"/>
+                                <connections>
+                                    <segue destination="6Q1-y4-FrH" kind="show" id="mwo-zQ-BTu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -55,6 +64,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1056.8" y="123.68815592203899"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="3Ft-co-ReC">
+            <objects>
+                <viewController id="6Q1-y4-FrH" customClass="MapViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="m7z-57-ZZl"/>
+                        <viewControllerLayoutGuide type="bottom" id="y2u-mY-pSA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KYL-7a-GZp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gbI-cB-kGi">
+                                <rect key="frame" x="41" y="30" width="293" height="607"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gbI-cB-kGi" firstAttribute="leading" secondItem="KYL-7a-GZp" secondAttribute="leadingMargin" constant="25" id="ICh-hw-VFj"/>
+                            <constraint firstItem="y2u-mY-pSA" firstAttribute="top" secondItem="gbI-cB-kGi" secondAttribute="bottom" constant="30" id="POA-ga-xPQ"/>
+                            <constraint firstItem="gbI-cB-kGi" firstAttribute="centerX" secondItem="KYL-7a-GZp" secondAttribute="centerX" id="VOq-RY-fcx"/>
+                            <constraint firstItem="gbI-cB-kGi" firstAttribute="centerY" secondItem="KYL-7a-GZp" secondAttribute="centerY" id="XIw-81-T8E"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="gbI-cB-kGi" id="DAT-EV-bSW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BtJ-qu-DpX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1853.5999999999999" y="77.811094452773617"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vff-p1-wUZ">

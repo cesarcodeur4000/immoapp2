@@ -20,6 +20,7 @@
 		EC7D63381F83CF1A00586292 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63371F83CF1A00586292 /* Constants.swift */; };
 		EC7D633A1F83D08800586292 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63391F83D08800586292 /* Models.swift */; };
 		ECE35CB51F8661E000D88BDB /* MyIOSHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */; };
+		ECE35CB71F87896A00D88BDB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE35CB61F87896A00D88BDB /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		EC7D63371F83CF1A00586292 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EC7D63391F83D08800586292 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyIOSHelper.swift; sourceTree = "<group>"; };
+		ECE35CB61F87896A00D88BDB /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FFEAD72BF81526F021A8A335 /* Pods_immoapp2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_immoapp2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */,
 				EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */,
 				ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */,
+				ECE35CB61F87896A00D88BDB /* MapViewController.swift */,
 			);
 			path = immoapp2;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				ECE35CB51F8661E000D88BDB /* MyIOSHelper.swift in Sources */,
 				EC7D63281F83CA2800586292 /* testViewController.swift in Sources */,
 				EC7D63261F83CA2800586292 /* AppDelegate.swift in Sources */,
+				ECE35CB71F87896A00D88BDB /* MapViewController.swift in Sources */,
 				EC7D63381F83CF1A00586292 /* Constants.swift in Sources */,
 				EC3BDC501F862AEA00F6A5EB /* MainViewController.swift in Sources */,
 				EC3BDC4E1F8627A800F6A5EB /* AppLoginViewController.swift in Sources */,

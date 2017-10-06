@@ -98,7 +98,12 @@ class TestViewController: UIViewController {
         
         //user.logOut()
         updateList()
-        populateBienImmo()
+        
+        
+        //populateBienImmo()
+        
+        retrieveBienImmo()
+        
         //grantaccess()
     
     }
@@ -258,6 +263,21 @@ class TestViewController: UIViewController {
             
             bims = realm.objects(BienImmobilier.self) // 5
         }
+    }
+    
+    func retrieveBienImmo(){
+    
+        let realm = try! Realm()
+        //var dogs: Results<Dog>?
+        let bims: Results<BienImmobilier> = { realm.objects(BienImmobilier.self) }()
+        
+        for bi in bims {
+            
+            print(bi.name,bi.longitude, bi.latitude)
+        }
+        
+
+    
     }
     //grant access
     func grantaccess(){
