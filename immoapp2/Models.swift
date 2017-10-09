@@ -8,7 +8,7 @@
 
 import Foundation
 import RealmSwift
-
+import UIKit
 
 class Dog: Object {
     dynamic var name = ""
@@ -73,4 +73,21 @@ final class BienImmobilier: Object {
     dynamic var latitude = 0.0
     
     dynamic var created = NSDate()
+}
+
+
+
+class DossierClient: Object {
+    
+    dynamic var id = NSUUID().uuidString
+    dynamic var name = ""
+    dynamic var firstname = ""
+    dynamic var scanId = ""
+    dynamic var status = ""
+    dynamic var textScanResult:String?
+    dynamic var imageData: [Data]?
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

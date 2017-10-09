@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E394060FA820373DB26EBB80 /* Pods_immoapp2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEAD72BF81526F021A8A335 /* Pods_immoapp2.framework */; };
+		EC1CA8E01F8B7E9B00D50145 /* DossierClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC1CA8DF1F8B7E9B00D50145 /* DossierClientViewController.swift */; };
 		EC3BDC4E1F8627A800F6A5EB /* AppLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC4D1F8627A800F6A5EB /* AppLoginViewController.swift */; };
 		EC3BDC501F862AEA00F6A5EB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */; };
 		EC3BDC521F86453F00F6A5EB /* Main1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		8FD1C6BCA4EEF00ECF9F2A04 /* Pods-immoapp2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-immoapp2.release.xcconfig"; path = "Pods/Target Support Files/Pods-immoapp2/Pods-immoapp2.release.xcconfig"; sourceTree = "<group>"; };
 		AD2533C3675973C16B804303 /* Pods-immoapp2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-immoapp2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-immoapp2/Pods-immoapp2.debug.xcconfig"; sourceTree = "<group>"; };
+		EC1CA8DF1F8B7E9B00D50145 /* DossierClientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DossierClientViewController.swift; sourceTree = "<group>"; };
 		EC3BDC4D1F8627A800F6A5EB /* AppLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLoginViewController.swift; sourceTree = "<group>"; };
 		EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main1ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				ECE35CB61F87896A00D88BDB /* MapViewController.swift */,
 				EC47CD4B1F8B624600E73AC7 /* String+Util.swift */,
 				EC47CD4D1F8B626800E73AC7 /* Localizable.strings */,
+				EC1CA8DF1F8B7E9B00D50145 /* DossierClientViewController.swift */,
 			);
 			path = immoapp2;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				EC7D63261F83CA2800586292 /* AppDelegate.swift in Sources */,
 				ECE35CB71F87896A00D88BDB /* MapViewController.swift in Sources */,
 				EC7D63381F83CF1A00586292 /* Constants.swift in Sources */,
+				EC1CA8E01F8B7E9B00D50145 /* DossierClientViewController.swift in Sources */,
 				EC3BDC501F862AEA00F6A5EB /* MainViewController.swift in Sources */,
 				EC3BDC4E1F8627A800F6A5EB /* AppLoginViewController.swift in Sources */,
 				EC3BDC541F86592A00F6A5EB /* RealmHelper.swift in Sources */,
