@@ -38,7 +38,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0NQ-PP-vIz">
-                                <rect key="frame" x="136" y="453" width="64" height="38"/>
+                                <rect key="frame" x="118" y="545" width="64" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="LOGOUT"/>
                                 <connections>
@@ -51,6 +51,14 @@
                                 <state key="normal" title="MAP"/>
                                 <connections>
                                     <segue destination="6Q1-y4-FrH" kind="show" id="mwo-zQ-BTu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UTY-CW-B5n">
+                                <rect key="frame" x="83" y="441" width="158" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="DOSSIER CLIENT"/>
+                                <connections>
+                                    <segue destination="g0u-Ri-TBi" kind="show" id="p87-AD-R4t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -151,12 +159,17 @@
                                 <rect key="frame" x="104" y="605" width="120" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ADD CLIENT"/>
+                                <connections>
+                                    <action selector="addClient:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="4Vi-9l-nN2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="addScan" destination="dMe-vf-GVn" id="dqo-W8-ckF"/>
+                        <outlet property="firstnameTextField" destination="mTI-JW-zb3" id="Ok2-Z8-OEx"/>
+                        <outlet property="nameTextField" destination="0LY-6H-MgE" id="Mge-ft-KfY"/>
+                        <outlet property="phoneTextField" destination="B98-lu-Tk2" id="fLg-Ht-l27"/>
                         <outlet property="scrollView" destination="jli-uf-xyZ" id="cWc-GJ-m6h"/>
                     </connections>
                 </viewController>

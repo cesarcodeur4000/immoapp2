@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Realm
 import RealmSwift
 import UIKit
 
@@ -85,8 +86,8 @@ class DossierClient: Object {
     dynamic var scanId = ""
     dynamic var status = ""
     dynamic var textScanResult:String?
-    dynamic var imageData: [Data]?
-    
+    //dynamic var imageData = [NSData]()
+    let imageData = List<Data>()
     override static func primaryKey() -> String? {
         return "id"
     }
