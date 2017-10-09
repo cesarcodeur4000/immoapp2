@@ -43,7 +43,7 @@ class Main1ViewController: UIViewController {
             print("Logout button tapped");
             SyncUser.current?.logOut()
             //Now we need to segue to the login view controller
-            self.performSegue(withIdentifier: Constants.kExitToLoginViewSegue, sender: self)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         alert.addAction(OKAction)
         

@@ -12,6 +12,8 @@
 		EC3BDC501F862AEA00F6A5EB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */; };
 		EC3BDC521F86453F00F6A5EB /* Main1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */; };
 		EC3BDC541F86592A00F6A5EB /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */; };
+		EC47CD4C1F8B624600E73AC7 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47CD4B1F8B624600E73AC7 /* String+Util.swift */; };
+		EC47CD4E1F8B626800E73AC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC47CD4D1F8B626800E73AC7 /* Localizable.strings */; };
 		EC7D63261F83CA2800586292 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63251F83CA2800586292 /* AppDelegate.swift */; };
 		EC7D63281F83CA2800586292 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63271F83CA2800586292 /* testViewController.swift */; };
 		EC7D632B1F83CA2800586292 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7D63291F83CA2800586292 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 		EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Main1ViewController.swift; sourceTree = "<group>"; };
 		EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
+		EC47CD4B1F8B624600E73AC7 /* String+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
+		EC47CD4D1F8B626800E73AC7 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		EC7D63221F83CA2800586292 /* immoapp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = immoapp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC7D63251F83CA2800586292 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC7D63271F83CA2800586292 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */,
 				ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */,
 				ECE35CB61F87896A00D88BDB /* MapViewController.swift */,
+				EC47CD4B1F8B624600E73AC7 /* String+Util.swift */,
+				EC47CD4D1F8B626800E73AC7 /* Localizable.strings */,
 			);
 			path = immoapp2;
 			sourceTree = "<group>";
@@ -175,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EC7D63301F83CA2800586292 /* LaunchScreen.storyboard in Resources */,
+				EC47CD4E1F8B626800E73AC7 /* Localizable.strings in Resources */,
 				EC7D632D1F83CA2800586292 /* Assets.xcassets in Resources */,
 				EC7D632B1F83CA2800586292 /* Main.storyboard in Resources */,
 			);
@@ -256,6 +263,7 @@
 				EC3BDC4E1F8627A800F6A5EB /* AppLoginViewController.swift in Sources */,
 				EC3BDC541F86592A00F6A5EB /* RealmHelper.swift in Sources */,
 				EC3BDC521F86453F00F6A5EB /* Main1ViewController.swift in Sources */,
+				EC47CD4C1F8B624600E73AC7 /* String+Util.swift in Sources */,
 				EC7D633A1F83D08800586292 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -355,10 +355,11 @@ class TestViewController: UIViewController {
         // Logout button
         let OKAction = UIAlertAction(title: NSLocalizedString("Logout", comment: "logout"), style: .default) { (action:UIAlertAction!) in
             print("Logout button tapped");
-            //SyncUser.current?.logOut()
+         //SyncUser.current?.logOut()
             self.user.logOut()
-            //Now we need to segue to the login view controller
+           //Now we need to segue to the login view controller
            // self.performSegue(withIdentifier: Constants.kExitToLoginViewSegue, sender: self)
+           // self.navigationController?.popToRootViewController(animated: true)
         }
         alert.addAction(OKAction)
         

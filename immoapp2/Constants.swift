@@ -25,6 +25,6 @@ struct Constants {
     
     
     //SEGUE IDENTIFIERS
-    static let kLoginToMainView = "loginToMainSegue"
+    static let kLoginToMainView = "loginToMainSegue" //"loginToMainSegueFinal" //
     static let kExitToLoginViewSegue = "mainToLoginSegue"
 }
