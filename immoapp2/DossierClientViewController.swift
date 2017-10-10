@@ -149,10 +149,16 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
            newdossiercli.name = nameTextField.text!
             newdossiercli.firstname = firstnameTextField.text!
             
+            let dossierid = newdossiercli.id
             
             for uim in self.images! {
                 
-                newdossiercli.imageData.append(uim.data())
+               // newdossiercli.imageData.append(uim.data())
+                let imageImmo = ImageImmo()
+                imageImmo.fkey_idDossierClient = dossierid
+                imageImmo.image = uim
+               newdossiercli.listimage.append(imageImmo)
+                
             }
             //newdossiercli.imageData = map(images)
             

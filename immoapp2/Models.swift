@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Realm
 import RealmSwift
 import UIKit
 
@@ -87,8 +86,50 @@ class DossierClient: Object {
     dynamic var status = ""
     dynamic var textScanResult:String?
     //dynamic var imageData = [NSData]()
-    let imageData = List<Data>()
+    let listimage = List<ImageImmo>()
     override static func primaryKey() -> String? {
         return "id"
+    }
+}
+class ImageImmo: Object {
+    dynamic var id = NSUUID().uuidString
+    dynamic var fkey_idDossierClient = ""
+    dynamic var name = ""
+    dynamic var imageString = ""
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    var image: UIImage {
+        get { return stringToImage(string: imageString) }
+        set { imageString = imageToString(image: newValue) }
+    }
+    
+    
+    override class func ignoredProperties() -> [String] {
+        return ["image", "hasId"]
+    }
+    
+    
+    private func imageToString(image: UIImage?) -> String {
+        if (image == nil) {
+            return ""
+        }
+        let data = UIImagePNGRepresentation(image!)
+        return data != nil ? data!.base64EncodedString(options: .lineLength64Characters) : ""
+        
+        
+    }
+    
+    private func stringToImage(string: String) -> UIImage {
+        if (string.characters.count == 0) {
+            return UIImage()
+        }
+        
+        let imageString = string.replacingOccurrences(of:"\r\n", with: "")
+        let options = NSData.Base64DecodingOptions(rawValue: 0)
+        let data = NSData(base64Encoded: imageString, options: options)
+        let image = data != nil ? UIImage(data: data! as Data) : nil
+        return image ?? UIImage()
     }
 }

@@ -57,11 +57,11 @@ class TestViewController: UIViewController {
 
     
     //MARK:- UTIL
-    private func showError(title: String, message: String) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-    }
+//    private func showError(title: String, message: String) {
+//        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+//        self.present(alertController, animated: true, completion: nil)
+//    }
     
     //MARK:- IBACTION
     @IBAction func actbutton(_ sender: Any) {
@@ -119,7 +119,7 @@ class TestViewController: UIViewController {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             syncConfiguration: SyncConfiguration(user: user, realmURL: Constants.syncServerURL!),
             //objectTypes: [TaskListList.self, TaskList.self, Task.self]
-            objectTypes: [Dog.self,BienImmobilier.self,DossierClient.self]
+            objectTypes: [Dog.self,BienImmobilier.self,DossierClient.self,ImageImmo.self]
         )
         
     }
