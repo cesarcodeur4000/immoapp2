@@ -119,7 +119,7 @@ class TestViewController: UIViewController {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             syncConfiguration: SyncConfiguration(user: user, realmURL: Constants.syncServerURL!),
             //objectTypes: [TaskListList.self, TaskList.self, Task.self]
-            objectTypes: [Dog.self,BienImmobilier.self,DossierClient.self,ImageImmo.self]
+            objectTypes: [Dog.self,BienImmobilier.self,DossierClientWithPics.self,ImageImmo.self,BienImmobilierWithPics.self]
         )
         
     }

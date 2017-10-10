@@ -52,7 +52,7 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         scrollView.setNeedsDisplay()
         
         // Do any additional setup after loading the view.
-        //TEST        
+        //TEST
         // loadImageStringFromRealm()
     }
 
@@ -215,8 +215,47 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
     }
  
     
+    @IBAction func addImmo(_ sender: Any) {
+        
+        let realm = try! Realm()
+        
+        try! realm.write() {
+            
+            let newbim = BienImmobilierWithPics()
+            
+            newbim.name = nameTextField.text!
+           // newdossiercli.firstname = firstnameTextField.text!
+            
+            let bimid = newbim.id
+            
+            for uim in self.images! {
+                
+                // newdossiercli.imageData.append(uim.data())
+                let imageImmo = ImageImmo()
+                imageImmo.fkey_idDossierClient = bimid
+                imageImmo.image = uim
+                newbim.listimage.append(imageImmo)
+                
+            }
+            //newdossiercli.imageData = map(images)
+            
+            //    ({ (value: UIImage) -> Data? in
+            //     return value.data()
+            // })
+            
+            //   newdossiercli.imageData = images.map{ NSData(data: UIImageJPEGRepresentation($0[0],0.9))}
+            realm.add(newbim)
+            //reset list of pics
+            self.images = []
+            self.scrollView.removeSubviews()
+        }
+        
+ 
+        
+        
+    }
     
-    //load image from realm
+    //load first image from realm
     func loadImageStringFromRealm(){
         
      
@@ -225,7 +264,7 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         
         let bims: Results<ImageImmo> = { realm.objects(ImageImmo.self) }()
         
-       currentScanImage = bims.first?.image
+        currentScanImage = bims.first?.image
 
         
     

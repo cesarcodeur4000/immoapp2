@@ -99,6 +99,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="gbI-cB-kGi" id="DAT-EV-bSW"/>
+                        <segue destination="oZC-0y-L4w" kind="show" identifier="SegueMapToDetailBI" id="Krv-20-qpK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BtJ-qu-DpX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -156,11 +157,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6p-dl-SSu">
-                                <rect key="frame" x="104" y="605" width="120" height="42"/>
+                                <rect key="frame" x="57" y="605" width="120" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ADD CLIENT"/>
                                 <connections>
                                     <action selector="addClient:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="4Vi-9l-nN2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKa-5f-dGW">
+                                <rect key="frame" x="223" y="607" width="84" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="add immo"/>
+                                <connections>
+                                    <action selector="addImmo:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="OD8-Xt-3cP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -176,6 +185,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rok-Dy-bBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2616.8000000000002" y="66.11694152923539"/>
+        </scene>
+        <!--Detail Bien Immo With Pics View Controller-->
+        <scene sceneID="kl7-Ae-d2T">
+            <objects>
+                <viewController id="oZC-0y-L4w" customClass="DetailBienImmoWithPicsViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QC8-sd-Age"/>
+                        <viewControllerLayoutGuide type="bottom" id="Emc-c1-Vjg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0gR-gl-V7D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dK5-xC-Tdj">
+                                <rect key="frame" x="61" y="97" width="266" height="348"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="dK5-xC-Tdj" id="Can-pX-aed"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EZN-c0-8gH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3472.8000000000002" y="142.57871064467767"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vff-p1-wUZ">

@@ -75,7 +75,18 @@ final class BienImmobilier: Object {
     dynamic var created = NSDate()
 }
 
-
+class BienImmobilierWithPics: Object{
+    dynamic var id = NSUUID().uuidString
+    dynamic var name = ""
+    dynamic var longitude = 0.0
+    dynamic var latitude = 0.0
+    dynamic var created = NSDate()
+    let listimage = List<ImageImmo>()
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+}
 
 class DossierClient: Object {
     
@@ -85,6 +96,22 @@ class DossierClient: Object {
     dynamic var scanId = ""
     dynamic var status = ""
     dynamic var textScanResult:String?
+    
+    //dynamic var imageData = [NSData]()
+    let listimage = List<ImageImmo>()
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+class DossierClientWithPics: Object {
+    
+    dynamic var id = NSUUID().uuidString
+    dynamic var name = ""
+    dynamic var firstname = ""
+    dynamic var scanId = ""
+    dynamic var status = ""
+    dynamic var textScanResult:String?
+    dynamic var created = NSDate()
     //dynamic var imageData = [NSData]()
     let listimage = List<ImageImmo>()
     override static func primaryKey() -> String? {

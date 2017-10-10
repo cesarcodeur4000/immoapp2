@@ -14,7 +14,7 @@ import RealmSwift
 class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
      var locationManager:CLLocationManager!
-    
+    var selectedBI: BienImmobilierWithPics?
     let regionRadius: CLLocationDistance = 1000
     
     //let locationManager = CLLocationManager()
@@ -87,11 +87,19 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             addPin(title: bi.name, location: location)
         }
         
+        let bimspics: Results<BienImmobilierWithPics> = { realm.objects(BienImmobilierWithPics.self) }()
+        
+        for bi in bimspics{
+            
+            print(bi.name,bi.longitude, bi.latitude)
+            let location = CLLocationCoordinate2D(latitude: bi.latitude, longitude: bi.longitude)
+            addImmoPin(title: bi.name, location: location,bienimmo: bi)
+        }
         
         
 
     }
-    
+    //add general info pin
     func addPin(title titlepin: String,location locationpin: CLLocationCoordinate2D){
         
         let pin = MKPointAnnotation()
@@ -100,41 +108,29 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         mapView.addAnnotation(pin)
         
     }
+    //add Immo special pin
     
+    func addImmoPin(title titlepin: String,location locationpin: CLLocationCoordinate2D,bienimmo bienimmopin: BienImmobilierWithPics){
+        
+        let pin = MKBienImmoPointAnnotation()
+        pin.coordinate = locationpin
+        pin.title = titlepin
+        pin.immoData = bienimmopin
+        mapView.addAnnotation(pin)
+        
+    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation{
-            
-            let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPinIdentifierlocuser")
-            return pinView
-        }else{
+        
+        if annotation is MKBienImmoPointAnnotation{
             let pinId = "myPinIdentifier"
             var pinView: MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinId) as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 pinView = dequeuedView
                 
-//                //***
-//                pinView.pinColor = .purple
-//                //pinView.isDraggable = true
-//                pinView.canShowCallout = true
-//                pinView.animatesDrop = true
-//                
-//                let goButton = UIButton(type: UIButtonType.custom) as UIButton
-//                goButton.frame.size.width = 44
-//                goButton.frame.size.height = 44
-//                goButton.backgroundColor = UIColor.purple
-//                goButton.setImage(UIImage(named: "trash"), for: [.normal])
-//                
-//                pinView.leftCalloutAccessoryView = goButton
-                
-                
-                
-                //***
-                
-                
-                
             }else{
+                
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinId)
                 
                 pinView.pinColor = .purple
@@ -150,8 +146,66 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                 
                 pinView.leftCalloutAccessoryView = goButton
                 
+                
+                
             }
             return pinView
+            
+        }
+        else {
+            
+            
+            if annotation is MKUserLocation{
+                
+                let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPinIdentifierlocuser")
+                return pinView
+            }else{
+                let pinId = "myPinIdentifier"
+                var pinView: MKPinAnnotationView
+                if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinId) as? MKPinAnnotationView {
+                    dequeuedView.annotation = annotation
+                    pinView = dequeuedView
+                    
+                    //                //***
+                    //                pinView.pinColor = .purple
+                    //                //pinView.isDraggable = true
+                    //                pinView.canShowCallout = true
+                    //                pinView.animatesDrop = true
+                    //
+                    //                let goButton = UIButton(type: UIButtonType.custom) as UIButton
+                    //                goButton.frame.size.width = 44
+                    //                goButton.frame.size.height = 44
+                    //                goButton.backgroundColor = UIColor.purple
+                    //                goButton.setImage(UIImage(named: "trash"), for: [.normal])
+                    //
+                    //                pinView.leftCalloutAccessoryView = goButton
+                    
+                    
+                    
+                    //***
+                    
+                    
+                    
+                }else{
+                    pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinId)
+                    
+                    pinView.pinColor = .purple
+                    //pinView.isDraggable = true
+                    pinView.canShowCallout = true
+                    pinView.animatesDrop = true
+                    
+                    let goButton = UIButton(type: UIButtonType.custom) as UIButton
+                    goButton.frame.size.width = 44
+                    goButton.frame.size.height = 44
+                    goButton.backgroundColor = UIColor.purple
+                    goButton.setImage(UIImage(named: "check-sign(1)"), for: [.normal])
+                    
+                    pinView.leftCalloutAccessoryView = goButton
+                    
+                }
+                return pinView
+            }
+            
         }
     }
     
@@ -176,6 +230,15 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         }
         print("PIN SELECTED2",annotation.title as? String as Any  )
         //perform segue
+        if view.annotation is MKBienImmoPointAnnotation{
+            selectedBI = view.annotation.immoData
+            self.performSegue(withIdentifier: "SegueMapToDetailBI", sender: self)
+        
+        }
+    }
+        
+        
+        
     }
     
     
@@ -234,7 +297,12 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         print("Error  location manager \(error)")
     }
     
-    
-    
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "SegueMapToDetailBI" {
+        let destinationViewController = segue.destination as! DetailBienImmoWithPicsViewController
+        destinationViewController.currentBIwithPics = selectedBI
+        
+    }
+
 }
 
