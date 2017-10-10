@@ -23,7 +23,27 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
     
     //MARK:-LOCAL VARS
     var images : [UIImage]?
-    var currentScanImage: UIImage?
+    var currentScanImage: UIImage?{
+        didSet{
+           // self.imageView.image = self.currentScanImage
+            
+            //add image to local array
+        //    self.images?.append(newValue)
+            //add image to scrollView
+            
+      //      self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
+       //     self.scrollView.addSubview(imageView)
+            // self.scrollView.addSubview(UIView())
+            //position scrollview to last added image
+            // scrollView.scrollToBottom(animation: true)
+            //reinitialize current image
+            
+            //  self.scrollView.scrollsToTop = true
+     //       self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
+            appendUIIMageToScrollView()
+            
+        }
+    }
     
     
     override func viewDidLoad() {
@@ -50,7 +70,24 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
     }
     */
 
-    
+    func appendUIIMageToScrollView(){
+        
+        var  i = 0
+        if let count = images?.count,count > 0 {
+            i = count
+        }
+        let imageView = UIImageView()
+        
+        let x = self.scrollView.frame.size.width * CGFloat(i)
+        imageView.frame = CGRect(x: x, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = self.currentScanImage
+        self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
+        self.scrollView.addSubview(imageView)
+        self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
+        
+        
+    }
    
     @IBAction func addScan(_ sender: Any) {
     
@@ -74,17 +111,17 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
             //add image to local array
            self.images?.append(currentimage)
             //add image to scrollView
-            imageView.image = self.currentScanImage
-            self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
-            self.scrollView.addSubview(imageView)
+            imageView.image = currentimage
+       //**     self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
+        //**    self.scrollView.addSubview(imageView)
            // self.scrollView.addSubview(UIView())
             //position scrollview to last added image
            // scrollView.scrollToBottom(animation: true)
             //reinitialize current image
            
           //  self.scrollView.scrollsToTop = true
-            self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
-            self.currentScanImage = nil
+         //**   self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
+           // self.currentScanImage = nil
             
         }
         

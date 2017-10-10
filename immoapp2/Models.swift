@@ -115,11 +115,29 @@ class ImageImmo: Object {
         if (image == nil) {
             return ""
         }
-        let data = UIImagePNGRepresentation(image!)
+        
+        
+        //let data = UIImagePNGRepresentation(image!)
+        let  data = resizeUIImage(image: image!)
         return data != nil ? data!.base64EncodedString(options: .lineLength64Characters) : ""
         
         
     }
+    
+    private func resizeUIImage(image: UIImage) -> Data? {
+        var imageData = UIImagePNGRepresentation(image)
+        
+        // Resize the image if it exceeds the 2MB API limit
+        if (imageData?.count)! > 2097152 {
+            let oldSize = image.size
+            let newSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
+            let newImage = image.resizeImage(image, size: newSize)
+            imageData = UIImageJPEGRepresentation(newImage, 0.7)
+        }
+        
+        return imageData
+    }
+    
     
     private func stringToImage(string: String) -> UIImage {
         if (string.characters.count == 0) {
