@@ -52,6 +52,8 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         scrollView.setNeedsDisplay()
         
         // Do any additional setup after loading the view.
+        //TEST        
+        // loadImageStringFromRealm()
     }
 
     override func didReceiveMemoryWarning() {
@@ -210,6 +212,23 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         }
         
         
+    }
+ 
+    
+    
+    //load image from realm
+    func loadImageStringFromRealm(){
+        
+     
+        //retrienve image from REalm
+        let realm = try! Realm()
+        
+        let bims: Results<ImageImmo> = { realm.objects(ImageImmo.self) }()
+        
+       currentScanImage = bims.first?.image
+
+        
+    
     }
     
 }
