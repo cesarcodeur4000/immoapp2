@@ -78,20 +78,20 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         //retrienve pins from REalm
         let realm = try! Realm()
         //var dogs: Results<Dog>?
-        let bims: Results<BienImmobilier> = { realm.objects(BienImmobilier.self) }()
-        
-        for bi in bims {
-            
-            print(bi.name,bi.longitude, bi.latitude)
-            let location = CLLocationCoordinate2D(latitude: bi.latitude, longitude: bi.longitude)
-            addPin(title: bi.name, location: location)
-        }
+//        let bims: Results<BienImmobilier> = { realm.objects(BienImmobilier.self) }()
+//        
+//        for bi in bims {
+//            
+//            print("BIM1",bi.name,bi.longitude, bi.latitude)
+//            let location = CLLocationCoordinate2D(latitude: bi.latitude, longitude: bi.longitude)
+//            addPin(title: bi.name, location: location)
+//        }
         
         let bimspics: Results<BienImmobilierWithPics> = { realm.objects(BienImmobilierWithPics.self) }()
         
         for bi in bimspics{
             
-            print(bi.name,bi.longitude, bi.latitude)
+            print("BIM2",bi.name,bi.longitude, bi.latitude)
             let location = CLLocationCoordinate2D(latitude: bi.latitude, longitude: bi.longitude)
             addImmoPin(title: bi.name, location: location,bienimmo: bi)
         }
@@ -123,7 +123,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKBienImmoPointAnnotation{
-            let pinId = "myPinIdentifier"
+            let pinId = "myPinIdentifierforBI"
             var pinView: MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinId) as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
@@ -230,8 +230,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         }
         print("PIN SELECTED2",annotation.title as? String as Any  )
         //perform segue
-        if view.annotation is MKBienImmoPointAnnotation{
-            selectedBI = view.annotation.immoData
+        if let myMKBIAnnotation = view.annotation as? MKBienImmoPointAnnotation{
+            selectedBI = myMKBIAnnotation.immoData
             self.performSegue(withIdentifier: "SegueMapToDetailBI", sender: self)
         
         }
@@ -239,8 +239,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         
         
-    }
-    
+
+
     
     func mapView( mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView)
     {
@@ -248,7 +248,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         {
             print("User tapped on annotation with title: \(annotationTitle!)")
         }
-    }
+  }
     func determineCurrentLocation()
     {
         locationManager = CLLocationManager()
@@ -300,9 +300,10 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "SegueMapToDetailBI" {
         let destinationViewController = segue.destination as! DetailBienImmoWithPicsViewController
-        destinationViewController.currentBIwithPics = selectedBI
+        destinationViewController.currentBIwithPics = self.selectedBI
         
     }
 
 }
 
+}

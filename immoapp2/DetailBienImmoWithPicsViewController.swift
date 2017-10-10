@@ -60,7 +60,7 @@ class DetailBienImmoWithPicsViewController: UIViewController {
         self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
         self.scrollView.addSubview(imageView)
         self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
-    
+        i = i + 1
             }
         
         
