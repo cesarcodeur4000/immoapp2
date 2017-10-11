@@ -12,11 +12,19 @@ import RealmSwift
 class DetailBienImmoWithPicsViewController: UIViewController {
 
     
-    var currentBIwithPics : BienImmobilierWithPics?
+    var bienImmo : BienImmobilierDetailsImages?
     
+    
+   
     
     //IBOUTLETS
     
+    
+    
+    @IBOutlet weak var nomBI: UILabel!
+    @IBOutlet weak var adresseBI: UILabel!
+    
+    @IBOutlet weak var descriptionBI: UILabel!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -26,6 +34,10 @@ class DetailBienImmoWithPicsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
        populateScrollView()
+       nomBI.text = bienImmo?.nom
+       descriptionBI.text = bienImmo?.description_bi
+        adresseBI.text = bienImmo?.adresse
+        
         
     }
 
@@ -47,7 +59,7 @@ class DetailBienImmoWithPicsViewController: UIViewController {
     func populateScrollView(){
     
         var  i = 0
-        if let bi = currentBIwithPics{
+        if let bi = bienImmo{
           
             
             for image in bi.listimage{
@@ -62,7 +74,9 @@ class DetailBienImmoWithPicsViewController: UIViewController {
         self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
         i = i + 1
             }
-        
+        //rewind scrollView
+            scrollView.scrollToTop()
+            
         
         }
      }

@@ -10,6 +10,11 @@ import Foundation
 import RealmSwift
 import UIKit
 
+
+enum type_bienimmobilier: Int{
+    
+    case maison,immeuble,appartement,terrain
+}
 class Dog: Object {
     dynamic var name = ""
     dynamic var age = 0
@@ -87,7 +92,40 @@ class BienImmobilierWithPics: Object{
     }
     
 }
+class BienImmobilierAppartement: Object{
+    dynamic var id = NSUUID().uuidString
+    dynamic var nom = ""
+    dynamic var description_bi = ""
+    dynamic var type = type_bienimmobilier.maison.rawValue
+    dynamic var superficie_m2 = 0.0
+   
+    dynamic var adresse = ""
+    dynamic var created = NSDate()
+   
+    let listimage = List<ImageImmo>()
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+}
 
+class BienImmobilierDetailsImages: Object{
+    dynamic var id = NSUUID().uuidString
+    dynamic var nom = ""
+    dynamic var description_bi = ""
+    dynamic var type = type_bienimmobilier.maison.rawValue
+    dynamic var superficie_m2 = 0.0
+    dynamic var longitude = 0.0
+    dynamic var latitude = 0.0
+    dynamic var adresse = ""
+    dynamic var created = NSDate()
+    let listappartement = List<BienImmobilierAppartement>()
+    var listimage = List<ImageImmo>()
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+}
 class DossierClient: Object {
     
     dynamic var id = NSUUID().uuidString

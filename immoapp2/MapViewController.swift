@@ -14,7 +14,7 @@ import RealmSwift
 class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
      var locationManager:CLLocationManager!
-    var selectedBI: BienImmobilierWithPics?
+    var selectedBI: BienImmobilierDetailsImages?
     let regionRadius: CLLocationDistance = 1000
     
     //let locationManager = CLLocationManager()
@@ -87,13 +87,13 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
 //            addPin(title: bi.name, location: location)
 //        }
         
-        let bimspics: Results<BienImmobilierWithPics> = { realm.objects(BienImmobilierWithPics.self) }()
+        let bimspics: Results<BienImmobilierDetailsImages> = { realm.objects(BienImmobilierDetailsImages.self) }()
         
         for bi in bimspics{
             
-            print("BIM2",bi.name,bi.longitude, bi.latitude)
+            print("BIM2",bi.nom,bi.longitude, bi.latitude)
             let location = CLLocationCoordinate2D(latitude: bi.latitude, longitude: bi.longitude)
-            addImmoPin(title: bi.name, location: location,bienimmo: bi)
+            addImmoPin(title: bi.nom, location: location,bienimmo: bi)
         }
         
         
@@ -110,7 +110,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     }
     //add Immo special pin
     
-    func addImmoPin(title titlepin: String,location locationpin: CLLocationCoordinate2D,bienimmo bienimmopin: BienImmobilierWithPics){
+    func addImmoPin(title titlepin: String,location locationpin: CLLocationCoordinate2D,bienimmo bienimmopin: BienImmobilierDetailsImages){
         
         let pin = MKBienImmoPointAnnotation()
         pin.coordinate = locationpin
@@ -300,7 +300,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "SegueMapToDetailBI" {
         let destinationViewController = segue.destination as! DetailBienImmoWithPicsViewController
-        destinationViewController.currentBIwithPics = self.selectedBI
+        destinationViewController.bienImmo = self.selectedBI
         
     }
 

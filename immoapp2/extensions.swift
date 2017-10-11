@@ -17,7 +17,15 @@ extension UIScrollView {
         let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
         self.setContentOffset(bottomOffset, animated: animated)
     }
+    
+    func scrollToTop() {
+        let desiredOffset = CGPoint(x: 0, y: -contentInset.top)
+        setContentOffset(desiredOffset, animated: true)
+    }
+    
 }
+
+
 
 extension UIImage {
     func resizeImage(_ image: UIImage, size: CGSize) -> UIImage {
@@ -89,5 +97,5 @@ extension UIView {
 }
 
 class MKBienImmoPointAnnotation : MKPointAnnotation {
-    var immoData:BienImmobilierWithPics?
+    var immoData:BienImmobilierDetailsImages?
 }

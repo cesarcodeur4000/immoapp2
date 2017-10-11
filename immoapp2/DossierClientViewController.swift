@@ -120,7 +120,7 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
             //position scrollview to last added image
            // scrollView.scrollToBottom(animation: true)
             //reinitialize current image
-           
+       
           //  self.scrollView.scrollsToTop = true
          //**   self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
            // self.currentScanImage = nil
@@ -255,7 +255,37 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         
     }
     
-    //load first image from realm
+    
+    @IBAction func loadimmodetails2(_ sender: Any) {
+        
+        
+        let realm = try! Realm()
+        
+        let bims: Results<BienImmobilierWithPics> = { realm.objects(BienImmobilierWithPics.self) }()
+        
+        try! realm.write() {
+
+            for bimpc in bims{
+                
+                var newbid = BienImmobilierDetailsImages()
+                newbid.nom = bimpc.name
+                newbid.longitude = bimpc.longitude
+                newbid.latitude = bimpc.latitude
+                newbid.listimage = bimpc.listimage
+                realm.add(newbid)
+                
+                
+                
+            }
+        
+        
+        }
+        
+        
+    }
+    
+    
+    //TESTload first image from realm
     func loadImageStringFromRealm(){
         
      

@@ -157,7 +157,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6p-dl-SSu">
-                                <rect key="frame" x="57" y="605" width="120" height="42"/>
+                                <rect key="frame" x="41" y="605" width="120" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="ADD CLIENT"/>
                                 <connections>
@@ -165,11 +165,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKa-5f-dGW">
-                                <rect key="frame" x="223" y="607" width="84" height="41"/>
+                                <rect key="frame" x="193" y="575" width="84" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="add immo"/>
                                 <connections>
                                     <action selector="addImmo:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="OD8-Xt-3cP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UtE-Eo-uCh">
+                                <rect key="frame" x="193" y="617" width="84" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="add immodetails"/>
+                                <connections>
+                                    <action selector="loadimmodetails2:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="20o-I6-QpM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -198,14 +206,78 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dK5-xC-Tdj">
-                                <rect key="frame" x="61" y="97" width="266" height="348"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dK5-xC-Tdj">
+                                <rect key="frame" x="54" y="177" width="266" height="272"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Détails Bien Immobilier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ga7-nM-cfa">
+                                <rect key="frame" x="62" y="106" width="251" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rYw-A3-pxp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNR-us-tqt">
+                                <rect key="frame" x="16" y="472" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="adresse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMU-Rc-cDh">
+                                <rect key="frame" x="16" y="536" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZo-v7-5Jm">
+                                <rect key="frame" x="16" y="582" width="343" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adresse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97t-w1-E6H">
+                                <rect key="frame" x="16" y="512" width="78" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kd-5x-jQb">
+                                <rect key="frame" x="16" y="565" width="110" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bMU-Rc-cDh" firstAttribute="centerX" secondItem="Ga7-nM-cfa" secondAttribute="centerX" id="0Li-Go-NXs"/>
+                            <constraint firstItem="dK5-xC-Tdj" firstAttribute="centerX" secondItem="Ga7-nM-cfa" secondAttribute="centerX" id="6zh-Sz-Xc7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jNR-us-tqt" secondAttribute="trailing" id="9rq-yJ-gMU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IZo-v7-5Jm" secondAttribute="trailing" id="BgI-V2-5fA"/>
+                            <constraint firstItem="bMU-Rc-cDh" firstAttribute="leading" secondItem="0gR-gl-V7D" secondAttribute="leadingMargin" id="PmP-DO-Awg"/>
+                            <constraint firstAttribute="bottom" secondItem="dK5-xC-Tdj" secondAttribute="bottom" constant="218" id="RrD-6L-mzQ"/>
+                            <constraint firstItem="Ga7-nM-cfa" firstAttribute="top" secondItem="QC8-sd-Age" secondAttribute="bottom" constant="42" id="Sv0-No-SkS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bMU-Rc-cDh" secondAttribute="trailing" id="Tuw-cq-oYP"/>
+                            <constraint firstItem="jNR-us-tqt" firstAttribute="centerX" secondItem="Ga7-nM-cfa" secondAttribute="centerX" id="ar6-6u-WjY"/>
+                            <constraint firstItem="IZo-v7-5Jm" firstAttribute="centerX" secondItem="dK5-xC-Tdj" secondAttribute="centerX" id="ccJ-7T-LNP"/>
+                            <constraint firstItem="Emc-c1-Vjg" firstAttribute="top" secondItem="IZo-v7-5Jm" secondAttribute="bottom" constant="64" id="fs4-Ml-KQi"/>
+                            <constraint firstItem="Ga7-nM-cfa" firstAttribute="centerX" secondItem="dK5-xC-Tdj" secondAttribute="centerX" id="pDM-Vx-vks"/>
+                            <constraint firstItem="dK5-xC-Tdj" firstAttribute="top" secondItem="Ga7-nM-cfa" secondAttribute="bottom" constant="50" id="qzl-CJ-lq3"/>
+                            <constraint firstItem="IZo-v7-5Jm" firstAttribute="centerX" secondItem="Ga7-nM-cfa" secondAttribute="centerX" id="s7i-7M-ahH"/>
+                            <constraint firstItem="IZo-v7-5Jm" firstAttribute="top" secondItem="bMU-Rc-cDh" secondAttribute="bottom" constant="25" id="sHk-It-uRE"/>
+                            <constraint firstItem="jNR-us-tqt" firstAttribute="top" secondItem="dK5-xC-Tdj" secondAttribute="bottom" constant="23" id="tV4-WQ-DkM"/>
+                            <constraint firstItem="dK5-xC-Tdj" firstAttribute="leading" secondItem="0gR-gl-V7D" secondAttribute="leadingMargin" constant="38" id="vMp-ky-XWX"/>
+                            <constraint firstItem="IZo-v7-5Jm" firstAttribute="leading" secondItem="0gR-gl-V7D" secondAttribute="leadingMargin" id="vi5-iI-9Kd"/>
+                            <constraint firstItem="jNR-us-tqt" firstAttribute="leading" secondItem="0gR-gl-V7D" secondAttribute="leadingMargin" id="wTv-O7-og9"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="adresseBI" destination="bMU-Rc-cDh" id="vGD-8d-uk5"/>
+                        <outlet property="descriptionBI" destination="IZo-v7-5Jm" id="kq5-gm-JPF"/>
+                        <outlet property="nomBI" destination="jNR-us-tqt" id="h9w-dm-rvA"/>
                         <outlet property="scrollView" destination="dK5-xC-Tdj" id="Can-pX-aed"/>
                     </connections>
                 </viewController>
