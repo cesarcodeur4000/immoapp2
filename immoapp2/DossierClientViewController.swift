@@ -87,7 +87,7 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         
         let x = self.scrollView.frame.size.width * CGFloat(i)
         imageView.frame = CGRect(x: x, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.image = self.currentScanImage
         self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
         self.scrollView.addSubview(imageView)

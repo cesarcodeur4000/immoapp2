@@ -96,7 +96,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             addImmoPin(title: bi.nom, location: location,bienimmo: bi)
         }
         
-        
+       // mapView.showAnnotations(mapView.annotations, animated: true)
 
     }
     //add general info pin

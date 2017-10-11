@@ -33,7 +33,7 @@ class DetailBienImmoWithPicsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-       populateScrollView()
+       
         
         //recuperer id BI
         self.idBienImmo = (bienImmo?.id)!
@@ -50,6 +50,11 @@ class DetailBienImmoWithPicsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        populateScrollView()
+    }
 
     /*
     // MARK: - Navigation
@@ -64,24 +69,27 @@ class DetailBienImmoWithPicsViewController: UIViewController {
     
         var  i = 0
         if let bi = bienImmo{
-          
-            
-            for image in bi.listimage{
-        let imageView = UIImageView()
-        
-        let x = self.scrollView.frame.size.width * CGFloat(i)
-        imageView.frame = CGRect(x: x, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = image.image
-        self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
-        self.scrollView.addSubview(imageView)
-        self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
-        i = i + 1
+            self.view.layoutIfNeeded()
+            self.scrollView.layoutIfNeeded()
+            for imageView in scrollView.subviews{
+                imageView.removeFromSuperview()
             }
-        //rewind scrollView
-            scrollView.scrollToTop()
-            
-        
+            for image in bi.listimage{
+                
+                let imageView = UIImageView()
+                
+                let x = self.scrollView.bounds.size.width * CGFloat(i)
+                imageView.frame = CGRect(x: x, y: 0, width: self.scrollView.bounds.width, height: self.scrollView.bounds.height)
+                imageView.contentMode = .scaleAspectFill
+                imageView.clipsToBounds = true
+                imageView.image = image.image
+                
+                self.scrollView.addSubview(imageView)
+                
+                self.scrollView.contentSize.width = self.scrollView.bounds.size.width * CGFloat(i + 1)
+                
+                i = i + 1
+            }
         }
      }
 
