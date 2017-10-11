@@ -13,6 +13,8 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
 
     
     //MARK:- IBOUTLETS
+    @IBOutlet weak var formScrollView: UIScrollView!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -59,6 +61,11 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         // Do any additional setup after loading the view.
         //TEST
         // loadImageStringFromRealm()
+        
+        //scrollview auto -adjust
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -311,5 +318,23 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         
     
     }
+  
+    //AUTO SCROLL
+    func keyboardWillShow(notification:NSNotification){
+        //give room at the bottom of the scroll view, so it doesn't cover up anything the user needs to tap
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = self.formScrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        self.formScrollView.contentInset = contentInset
+    }
+    
+    func keyboardWillHide(notification:NSNotification){
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        self.formScrollView.contentInset = contentInset
+    }
+    
     
 }

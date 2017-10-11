@@ -118,18 +118,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTI-JW-zb3">
-                                <rect key="frame" x="71" y="427" width="226" height="30"/>
-                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phone Number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B98-lu-Tk2">
-                                <rect key="frame" x="71" y="465" width="226" height="30"/>
-                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMe-vf-GVn">
                                 <rect key="frame" x="151" y="353" width="112" height="30"/>
                                 <state key="normal" title="AJOUTER SCAN">
@@ -154,48 +142,71 @@
                                     <action selector="addClient:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="4Vi-9l-nN2"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-6H-MgE">
-                                <rect key="frame" x="71" y="389" width="226" height="30"/>
-                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-Nq-rM4">
-                                <rect key="frame" x="71" y="503" width="229" height="30"/>
-                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6i-m4-oEy">
+                                <rect key="frame" x="30" y="391" width="354" height="275"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="30v-81-u5q">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="150"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-6H-MgE">
+                                                <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
+                                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTI-JW-zb3">
+                                                <rect key="frame" x="0.0" y="40" width="354" height="30"/>
+                                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phone Number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B98-lu-Tk2">
+                                                <rect key="frame" x="0.0" y="80" width="354" height="30"/>
+                                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-Nq-rM4">
+                                                <rect key="frame" x="0.0" y="120" width="354" height="30"/>
+                                                <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="30v-81-u5q" secondAttribute="bottom" constant="125" id="O02-j7-Kjw"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="30v-81-u5q" secondAttribute="trailing" constant="258" id="PHz-ZP-uRl"/>
+                                    <constraint firstItem="30v-81-u5q" firstAttribute="top" secondItem="w6i-m4-oEy" secondAttribute="top" id="YBE-uS-coQ"/>
+                                    <constraint firstItem="30v-81-u5q" firstAttribute="centerX" secondItem="w6i-m4-oEy" secondAttribute="centerX" id="oUe-Vv-vVS"/>
+                                    <constraint firstAttribute="bottom" secondItem="30v-81-u5q" secondAttribute="bottom" constant="125" id="sMO-o7-h83"/>
+                                    <constraint firstItem="30v-81-u5q" firstAttribute="leading" secondItem="w6i-m4-oEy" secondAttribute="leading" id="xYG-QN-JUN"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="dMe-vf-GVn" firstAttribute="top" secondItem="jli-uf-xyZ" secondAttribute="bottom" constant="8" id="1re-EE-6cs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="fvV-Nq-rM4" secondAttribute="trailing" constant="97" id="5Ro-xH-jQk"/>
-                            <constraint firstItem="fvV-Nq-rM4" firstAttribute="leading" secondItem="BdQ-Uc-O1B" secondAttribute="leadingMargin" constant="48" id="5pT-cV-e28"/>
-                            <constraint firstItem="mTI-JW-zb3" firstAttribute="top" secondItem="0LY-6H-MgE" secondAttribute="bottom" constant="8" symbolic="YES" id="FGu-7k-zB6"/>
-                            <constraint firstItem="0LY-6H-MgE" firstAttribute="top" secondItem="dMe-vf-GVn" secondAttribute="bottom" constant="6" id="ILH-6x-u1N"/>
-                            <constraint firstItem="dMe-vf-GVn" firstAttribute="centerX" secondItem="BdQ-Uc-O1B" secondAttribute="centerX" id="Kfr-q7-88S"/>
+                            <constraint firstItem="X6p-dl-SSu" firstAttribute="top" secondItem="w6i-m4-oEy" secondAttribute="bottom" constant="8" symbolic="YES" id="LxA-8h-L9G"/>
+                            <constraint firstItem="w6i-m4-oEy" firstAttribute="leading" secondItem="BdQ-Uc-O1B" secondAttribute="leadingMargin" constant="10" id="M8u-x9-rHt"/>
                             <constraint firstItem="dMe-vf-GVn" firstAttribute="top" secondItem="jli-uf-xyZ" secondAttribute="bottom" constant="8" symbolic="YES" id="MkL-zH-1xM"/>
-                            <constraint firstItem="mTI-JW-zb3" firstAttribute="leading" secondItem="B98-lu-Tk2" secondAttribute="leading" id="NbR-3T-khD"/>
+                            <constraint firstItem="w6i-m4-oEy" firstAttribute="top" secondItem="jli-uf-xyZ" secondAttribute="bottom" constant="46" id="NUM-Uk-cBc"/>
                             <constraint firstItem="dMe-vf-GVn" firstAttribute="centerY" secondItem="BdQ-Uc-O1B" secondAttribute="centerY" id="SF1-BR-ACe"/>
-                            <constraint firstItem="fvV-Nq-rM4" firstAttribute="top" secondItem="B98-lu-Tk2" secondAttribute="bottom" constant="77" id="U3p-ZF-F5O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jli-uf-xyZ" secondAttribute="trailing" constant="16" id="USd-OC-Pwv"/>
-                            <constraint firstItem="fvV-Nq-rM4" firstAttribute="trailing" secondItem="mTI-JW-zb3" secondAttribute="trailing" id="Un6-nL-WwY"/>
-                            <constraint firstItem="fvV-Nq-rM4" firstAttribute="trailing" secondItem="0LY-6H-MgE" secondAttribute="trailing" constant="38" id="VwM-XT-sdF"/>
                             <constraint firstItem="jli-uf-xyZ" firstAttribute="leading" secondItem="BdQ-Uc-O1B" secondAttribute="leadingMargin" constant="25" id="cgQ-lT-Vab"/>
                             <constraint firstAttribute="bottom" secondItem="X6p-dl-SSu" secondAttribute="bottom" constant="20" symbolic="YES" id="d3O-FW-iqZ"/>
-                            <constraint firstItem="X6p-dl-SSu" firstAttribute="top" secondItem="fvV-Nq-rM4" secondAttribute="bottom" constant="72" id="da2-1E-sW0"/>
                             <constraint firstItem="jli-uf-xyZ" firstAttribute="leading" secondItem="X6p-dl-SSu" secondAttribute="leading" id="gZv-xF-zgR"/>
                             <constraint firstItem="dMe-vf-GVn" firstAttribute="centerX" secondItem="BdQ-Uc-O1B" secondAttribute="centerX" id="hwb-Eb-Krm"/>
                             <constraint firstItem="jli-uf-xyZ" firstAttribute="top" secondItem="ep6-Dp-rci" secondAttribute="bottom" constant="22" id="jGB-tR-Dmt"/>
-                            <constraint firstItem="fvV-Nq-rM4" firstAttribute="trailing" secondItem="B98-lu-Tk2" secondAttribute="trailing" constant="38" id="scJ-rl-f5N"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w6i-m4-oEy" secondAttribute="trailing" constant="10" id="lEL-zW-AIS"/>
                             <constraint firstItem="jli-uf-xyZ" firstAttribute="trailing" secondItem="X6p-dl-SSu" secondAttribute="trailing" id="tBv-Sh-h3P"/>
-                            <constraint firstItem="mTI-JW-zb3" firstAttribute="leading" secondItem="BdQ-Uc-O1B" secondAttribute="leadingMargin" constant="51" id="u9e-7t-Yal"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="fvV-Nq-rM4" id="VI6-mF-2y6"/>
                         <outlet property="firstnameTextField" destination="mTI-JW-zb3" id="Ok2-Z8-OEx"/>
+                        <outlet property="formScrollView" destination="w6i-m4-oEy" id="igw-Bx-V36"/>
                         <outlet property="nameTextField" destination="0LY-6H-MgE" id="Mge-ft-KfY"/>
                         <outlet property="phoneTextField" destination="B98-lu-Tk2" id="fLg-Ht-l27"/>
                         <outlet property="scrollView" destination="jli-uf-xyZ" id="cWc-GJ-m6h"/>
