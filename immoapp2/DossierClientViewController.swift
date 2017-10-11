@@ -114,7 +114,7 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         let x = self.scrollView.frame.size.width * CGFloat(i)
         imageView.frame = CGRect(x: x, y: 0, width: self.scrollView.frame.width, height: self.scrollView.frame.height)
         imageView.contentMode = .scaleAspectFit
-      //  imageView.image = SCAN to last place images[i]
+      //imageView.image = SCAN to last place images[i]
         prepareScan()
         
         

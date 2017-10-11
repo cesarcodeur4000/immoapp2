@@ -86,15 +86,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gbI-cB-kGi">
-                                <rect key="frame" x="45" y="30" width="324" height="676"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gbI-cB-kGi" firstAttribute="leading" secondItem="KYL-7a-GZp" secondAttribute="leadingMargin" constant="25" id="ICh-hw-VFj"/>
-                            <constraint firstItem="y2u-mY-pSA" firstAttribute="top" secondItem="gbI-cB-kGi" secondAttribute="bottom" constant="30" id="POA-ga-xPQ"/>
+                            <constraint firstItem="y2u-mY-pSA" firstAttribute="top" secondItem="gbI-cB-kGi" secondAttribute="bottom" id="JbL-fK-DRQ"/>
+                            <constraint firstItem="gbI-cB-kGi" firstAttribute="leading" secondItem="KYL-7a-GZp" secondAttribute="leading" id="PWV-VV-a09"/>
                             <constraint firstItem="gbI-cB-kGi" firstAttribute="centerX" secondItem="KYL-7a-GZp" secondAttribute="centerX" id="VOq-RY-fcx"/>
                             <constraint firstItem="gbI-cB-kGi" firstAttribute="centerY" secondItem="KYL-7a-GZp" secondAttribute="centerY" id="XIw-81-T8E"/>
+                            <constraint firstAttribute="trailing" secondItem="gbI-cB-kGi" secondAttribute="trailing" id="Ye9-Ul-UzW"/>
+                            <constraint firstItem="gbI-cB-kGi" firstAttribute="top" secondItem="KYL-7a-GZp" secondAttribute="topMargin" id="v6B-Z0-tMG"/>
                         </constraints>
                     </view>
                     <connections>

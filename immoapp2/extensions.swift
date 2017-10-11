@@ -23,6 +23,33 @@ extension UIScrollView {
         setContentOffset(desiredOffset, animated: true)
     }
     
+    func populateScrollView(images: [UIImage]){
+        
+        var  i = 0
+        
+        
+        self.layoutIfNeeded()
+        
+        self.removeSubviews()
+        for image in images{
+            
+            let imageView = UIImageView()
+            
+            let x = self.bounds.size.width * CGFloat(i)
+            imageView.frame = CGRect(x: x, y: 0, width: self.bounds.width, height: self.bounds.height)
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            imageView.image = image
+            
+            self.addSubview(imageView)
+            
+            self.contentSize.width = self.bounds.size.width * CGFloat(i + 1)
+            
+            i = i + 1
+        }
+        
+    }
+    
 }
 
 

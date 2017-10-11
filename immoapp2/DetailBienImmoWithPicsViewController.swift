@@ -53,7 +53,10 @@ class DetailBienImmoWithPicsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        populateScrollView()
+        let images = bienImmo?.listimage.map({ (imageImo) -> UIImage in
+            return imageImo.image
+        }) ?? []
+        self.scrollView.populateScrollView(images: images)
     }
 
     /*
@@ -65,33 +68,7 @@ class DetailBienImmoWithPicsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func populateScrollView(){
     
-        var  i = 0
-        if let bi = bienImmo{
-            self.view.layoutIfNeeded()
-            self.scrollView.layoutIfNeeded()
-            for imageView in scrollView.subviews{
-                imageView.removeFromSuperview()
-            }
-            for image in bi.listimage{
-                
-                let imageView = UIImageView()
-                
-                let x = self.scrollView.bounds.size.width * CGFloat(i)
-                imageView.frame = CGRect(x: x, y: 0, width: self.scrollView.bounds.width, height: self.scrollView.bounds.height)
-                imageView.contentMode = .scaleAspectFill
-                imageView.clipsToBounds = true
-                imageView.image = image.image
-                
-                self.scrollView.addSubview(imageView)
-                
-                self.scrollView.contentSize.width = self.scrollView.bounds.size.width * CGFloat(i + 1)
-                
-                i = i + 1
-            }
-        }
-     }
 
 //MARK:- IBACTION
     
