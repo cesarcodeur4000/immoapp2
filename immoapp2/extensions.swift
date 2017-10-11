@@ -60,11 +60,11 @@ extension UIViewController{
     
     func presentAlertDialog(withError error: Error){
         
-        self.showError(title: "ERROR OCCURED", message: error.localizedDescription)
+        self.showMessage(title: "ERROR OCCURED", message: error.localizedDescription)
         
     }
     
-     func showError(title: String, message: String) {
+     func showMessage(title: String, message: String) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)

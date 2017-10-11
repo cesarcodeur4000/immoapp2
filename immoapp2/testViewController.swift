@@ -41,7 +41,7 @@ class TestViewController: UIViewController {
                             // can now open a synchronized Realm with this user
                         } else if let error = error {
                             // handle error
-                            self.showError(title: "Unable to Sign In", message: error.localizedDescription)
+                            self.showMessage(title: "Unable to Sign In", message: error.localizedDescription)
                         }
         }
 
@@ -119,7 +119,7 @@ class TestViewController: UIViewController {
         Realm.Configuration.defaultConfiguration = Realm.Configuration(
             syncConfiguration: SyncConfiguration(user: user, realmURL: Constants.syncServerURL!),
             //objectTypes: [TaskListList.self, TaskList.self, Task.self]
-            objectTypes: [Dog.self,BienImmobilier.self,DossierClientWithPics.self,ImageImmo.self,BienImmobilierWithPics.self,BienImmobilierDetailsImages.self,BienImmobilierAppartement.self]
+            objectTypes: [Dog.self,BienImmobilier.self,DossierClientDetail.self,ImageImmo.self,BienImmobilierWithPics.self,BienImmobilierDetailsImages.self,BienImmobilierAppartement.self]
         )
         
     }
@@ -288,7 +288,7 @@ class TestViewController: UIViewController {
         SyncUser.current?.applyPermission(permission) { error in
             if let error = error {
                 // handle error
-                self.showError(title: "Unable to grant permission", message: error.localizedDescription)
+                self.showMessage(title: "Unable to grant permission", message: error.localizedDescription)
                 return
             }
     }

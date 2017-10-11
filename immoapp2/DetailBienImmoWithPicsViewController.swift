@@ -36,7 +36,7 @@ class DetailBienImmoWithPicsViewController: UIViewController {
        populateScrollView()
         
         //recuperer id BI
-        self.idBienImmo = bienImmo?.id
+        self.idBienImmo = (bienImmo?.id)!
         //recuperer data BI
        nomBI.text = bienImmo?.nom
        descriptionBI.text = bienImmo?.description_bi
@@ -100,7 +100,7 @@ class DetailBienImmoWithPicsViewController: UIViewController {
         
         if segue.identifier == "SegueToDossierClient" {
             let destinationViewController = segue.destination as! DossierClientViewController
-            destinationViewController.BienImmoId = self.idBienImmo
+            destinationViewController.bienImmo = self.bienImmo
             
         }
         

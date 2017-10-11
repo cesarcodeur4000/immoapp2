@@ -126,14 +126,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTI-JW-zb3">
-                                <rect key="frame" x="67" y="459" width="195" height="30"/>
+                                <rect key="frame" x="67" y="427" width="195" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phoe Number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B98-lu-Tk2">
-                                <rect key="frame" x="67" y="537" width="195" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phone Number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B98-lu-Tk2">
+                                <rect key="frame" x="67" y="465" width="195" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -180,10 +180,18 @@
                                     <action selector="loadimmodetails2:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="20o-I6-QpM"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-Nq-rM4">
+                                <rect key="frame" x="64" y="503" width="198" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="fvV-Nq-rM4" id="VI6-mF-2y6"/>
                         <outlet property="firstnameTextField" destination="mTI-JW-zb3" id="Ok2-Z8-OEx"/>
                         <outlet property="nameTextField" destination="0LY-6H-MgE" id="Mge-ft-KfY"/>
                         <outlet property="phoneTextField" destination="B98-lu-Tk2" id="fLg-Ht-l27"/>
@@ -192,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rok-Dy-bBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3642" y="-786"/>
+            <point key="canvasLocation" x="3640.8000000000002" y="-786.65667166416802"/>
         </scene>
         <!--Detail Bien Immo With Pics View Controller-->
         <scene sceneID="kl7-Ae-d2T">
@@ -219,10 +227,10 @@
                                 <color key="highlightedColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ac0-Mw-gCQ">
-                                <rect key="frame" x="32" y="484" width="343" height="183"/>
+                                <rect key="frame" x="18" y="484" width="339" height="183"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nom" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNR-us-tqt">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="339" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -259,7 +267,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mql-cS-0CY">
-                                        <rect key="frame" x="0.0" y="111" width="343" height="72"/>
+                                        <rect key="frame" x="0.0" y="111" width="339" height="72"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="NOUVEAU DOSSIER CLIENT">
                                             <color key="titleColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -272,6 +280,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="jNR-us-tqt" firstAttribute="centerX" secondItem="ac0-Mw-gCQ" secondAttribute="centerX" id="1sG-JT-aOl"/>
+                                    <constraint firstItem="Mql-cS-0CY" firstAttribute="centerX" secondItem="ac0-Mw-gCQ" secondAttribute="centerX" id="hnS-6v-YNA"/>
                                     <constraint firstAttribute="trailing" secondItem="Mql-cS-0CY" secondAttribute="trailing" id="mc9-HM-gXL"/>
                                 </constraints>
                             </stackView>
@@ -279,10 +288,11 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dK5-xC-Tdj" firstAttribute="centerX" secondItem="Ga7-nM-cfa" secondAttribute="centerX" id="6zh-Sz-Xc7"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ac0-Mw-gCQ" secondAttribute="trailing" constant="-16" id="DE5-Yv-Zxt"/>
+                            <constraint firstItem="ac0-Mw-gCQ" firstAttribute="centerX" secondItem="0gR-gl-V7D" secondAttribute="centerX" id="JND-NT-y6R"/>
                             <constraint firstAttribute="bottom" secondItem="dK5-xC-Tdj" secondAttribute="bottom" constant="218" id="RrD-6L-mzQ"/>
                             <constraint firstItem="Ga7-nM-cfa" firstAttribute="top" secondItem="QC8-sd-Age" secondAttribute="bottom" constant="42" id="Sv0-No-SkS"/>
-                            <constraint firstItem="ac0-Mw-gCQ" firstAttribute="centerX" secondItem="0gR-gl-V7D" secondAttribute="centerX" constant="16" id="ZhD-8B-fkm"/>
+                            <constraint firstItem="ac0-Mw-gCQ" firstAttribute="leading" secondItem="0gR-gl-V7D" secondAttribute="leadingMargin" constant="2" id="T0l-a4-1fM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ac0-Mw-gCQ" secondAttribute="trailing" constant="2" id="eTz-K5-vJH"/>
                             <constraint firstItem="Emc-c1-Vjg" firstAttribute="top" secondItem="ac0-Mw-gCQ" secondAttribute="bottom" id="i58-ez-skH"/>
                             <constraint firstItem="dK5-xC-Tdj" firstAttribute="centerX" secondItem="0gR-gl-V7D" secondAttribute="centerX" id="jyl-bk-X3N"/>
                             <constraint firstItem="Ga7-nM-cfa" firstAttribute="centerX" secondItem="dK5-xC-Tdj" secondAttribute="centerX" id="pDM-Vx-vks"/>

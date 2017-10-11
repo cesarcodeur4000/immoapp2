@@ -167,6 +167,8 @@ class DossierClientDetail: Object {
     dynamic var email = ""
     dynamic var textScanResult:String?
     dynamic var created = NSDate()
+    
+    dynamic var bienimmobilier:BienImmobilierDetailsImages?
     //dynamic var imageData = [NSData]()
     let listimage = List<ImageImmo>()
     override static func primaryKey() -> String? {

@@ -21,8 +21,11 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
     
     @IBOutlet weak var phoneTextField: UITextField!
     
+    @IBOutlet weak var emailTextField: UITextField!
+    
     //MARK:-LOCAL VARS
-    var BienImmoId = ""  //cle étrangere pointant vers le BI attaché au dossier
+    var bienImmoId = ""  //cle étrangere pointant vers le BI attaché au dossier
+    var bienImmo : BienImmobilierDetailsImages?
     var images : [UIImage]?
     var currentScanImage: UIImage?{
         didSet{
@@ -49,6 +52,7 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bienImmoId = (bienImmo?.id)!
         images = []
         scrollView.setNeedsDisplay()
         
@@ -184,10 +188,14 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         
         try! realm.write() {
         
-            let newdossiercli = DossierClient()
+            let newdossiercli = DossierClientDetail()
             
-           newdossiercli.name = nameTextField.text!
-            newdossiercli.firstname = firstnameTextField.text!
+           newdossiercli.nom = nameTextField.text!
+           newdossiercli.prenom = firstnameTextField.text!
+           newdossiercli.bienimmobilier = self.bienImmo
+           newdossiercli.fk_BienImmo = bienImmo?.id
+           newdossiercli.email = emailTextField.text!
+           newdossiercli.telephone = phoneTextField.text!
             
             let dossierid = newdossiercli.id
             
@@ -211,6 +219,9 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
             
             
         }
+        //envoyer message ok
+        
+        self.showMessage(title: "DOSSIER CLIENT", message: "Dossier créé avec succès")
         
         
     }
