@@ -156,6 +156,24 @@ class DossierClientWithPics: Object {
         return "id"
     }
 }
+
+class DossierClientDetail: Object {
+    
+    dynamic var id = NSUUID().uuidString
+    dynamic var fk_BienImmo:String?
+    dynamic var nom = ""
+    dynamic var prenom = ""
+    dynamic var telephone = ""
+    dynamic var email = ""
+    dynamic var textScanResult:String?
+    dynamic var created = NSDate()
+    //dynamic var imageData = [NSData]()
+    let listimage = List<ImageImmo>()
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
 class ImageImmo: Object {
     dynamic var id = NSUUID().uuidString
     dynamic var fkey_idDossierClient = ""

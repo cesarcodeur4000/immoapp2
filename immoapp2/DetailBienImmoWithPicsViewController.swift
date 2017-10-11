@@ -13,7 +13,7 @@ class DetailBienImmoWithPicsViewController: UIViewController {
 
     
     var bienImmo : BienImmobilierDetailsImages?
-    
+    var idBienImmo = ""
     
    
     
@@ -34,6 +34,10 @@ class DetailBienImmoWithPicsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
        populateScrollView()
+        
+        //recuperer id BI
+        self.idBienImmo = bienImmo?.id
+        //recuperer data BI
        nomBI.text = bienImmo?.nom
        descriptionBI.text = bienImmo?.description_bi
         adresseBI.text = bienImmo?.adresse
@@ -80,4 +84,26 @@ class DetailBienImmoWithPicsViewController: UIViewController {
         
         }
      }
+
+//MARK:- IBACTION
+    
+    
+    @IBAction func btnDossierClient(_ sender: Any) {
+        
+        performSegue(withIdentifier: "SegueToDossierClient", sender: self)
+        
+    }
+
+    //preapre segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SegueToDossierClient" {
+            let destinationViewController = segue.destination as! DossierClientViewController
+            destinationViewController.BienImmoId = self.idBienImmo
+            
+        }
+        
+    }
+
 }

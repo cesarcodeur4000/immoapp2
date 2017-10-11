@@ -22,6 +22,7 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
     @IBOutlet weak var phoneTextField: UITextField!
     
     //MARK:-LOCAL VARS
+    var BienImmoId = ""  //cle étrangere pointant vers le BI attaché au dossier
     var images : [UIImage]?
     var currentScanImage: UIImage?{
         didSet{
