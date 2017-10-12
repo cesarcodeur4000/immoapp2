@@ -17,33 +17,49 @@ extension UIScrollView {
         let bottomOffset = CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height)
         self.setContentOffset(bottomOffset, animated: animated)
     }
-    
+    func scrollToRight(animation animated: Bool) {
+        if self.contentSize.width < self.bounds.size.width { return }
+        let rightOffset = CGPoint(x: self.contentSize.width - self.bounds.size.width, y: 0)
+        self.setContentOffset(rightOffset, animated: animated)
+    }
     func scrollToTop() {
         let desiredOffset = CGPoint(x: 0, y: -contentInset.top)
         setContentOffset(desiredOffset, animated: true)
     }
     
-    func populateScrollView(images: [UIImage]){
+    func populateScrollView(images: [UIImage], append append_bool :Bool = false,mode viewcontentmode:UIViewContentMode = .scaleAspectFill){
         
         var  i = 0
-        
+        var x = CGFloat(0)
+        let count = self.subviews.count
         
         self.layoutIfNeeded()
-        
-        self.removeSubviews()
+        //si ce nest pas un simple append , on efface tout avant de remplir la ScrollView
+        if append_bool == false { self.removeSubviews()}
         for image in images{
             
             let imageView = UIImageView()
             
-            let x = self.bounds.size.width * CGFloat(i)
+            if append_bool == false { x = self.bounds.size.width * CGFloat(i)}
+            
+            else{ x = self.bounds.size.width * CGFloat(count) }
+            
             imageView.frame = CGRect(x: x, y: 0, width: self.bounds.width, height: self.bounds.height)
-            imageView.contentMode = .scaleAspectFill
+            //imageView.contentMode = .scaleAspectFill
+            imageView.contentMode = viewcontentmode
             imageView.clipsToBounds = true
             imageView.image = image
             
             self.addSubview(imageView)
-            
-            self.contentSize.width = self.bounds.size.width * CGFloat(i + 1)
+            if append_bool == false {
+                self.contentSize.width = self.bounds.size.width * CGFloat(i + 1)
+            }
+            else{
+                
+               // self.contentSize.width = self.contentSize.width + self.bounds.size.width
+                self.contentSize.width = self.bounds.size.width * CGFloat(count + 1)
+            }
+            //self.contentSize.width = self.contentSize.width + self.bounds.size.width
             
             i = i + 1
         }

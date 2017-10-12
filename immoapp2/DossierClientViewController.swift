@@ -28,13 +28,21 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
     //MARK:-LOCAL VARS
     var bienImmoId = ""  //cle étrangere pointant vers le BI attaché au dossier
     var bienImmo : BienImmobilierDetailsImages?
-    var images : [UIImage]?
+    var images : [UIImage]?{
+        
+       didSet{
+        self.viewDidLayoutSubviews()
+        //self.scrollView.populateScrollView(images: self.images!)
+        print("TAB",self.images?.count ?? 0)
+        }
+    }
     var currentScanImage: UIImage?{
-        didSet{
+        willSet{
            // self.imageView.image = self.currentScanImage
             
             //add image to local array
-        //    self.images?.append(newValue)
+            if let newuim = newValue {self.images?.append(newuim)}
+            
             //add image to scrollView
             
       //      self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
@@ -46,8 +54,10 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
             
             //  self.scrollView.scrollsToTop = true
      //       self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
-            appendUIIMageToScrollView()
-            
+            //appendUIIMageToScrollView()
+            //self.scrollView.populateScrollView(images: [self.currentScanImage!], append: true)
+           // self.scrollView.populateScrollView(images: self.images!)
+          //  self.viewDidLayoutSubviews()
         }
     }
     
@@ -118,15 +128,19 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         prepareScan()
         
         
-        DispatchQueue.main.async {
+//        DispatchQueue.main.async {
             
-        if let currentimage = self.currentScanImage{
+//        if let currentimage = self.currentScanImage{
             
             //add image to local array
-           self.images?.append(currentimage)
+ //          self.images?.append(currentimage)
+ //            print("TAB",self.images?.count ?? 0)
             //add image to scrollView
-            imageView.image = currentimage
-       //**     self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
+            
+ //           imageView.image = currentimage
+       
+            
+            //**     self.scrollView.contentSize.width = self.scrollView.frame.size.width * CGFloat(i + 1)
         //**    self.scrollView.addSubview(imageView)
            // self.scrollView.addSubview(UIView())
             //position scrollview to last added image
@@ -137,9 +151,15 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
          //**   self.scrollView.setContentOffset( CGPoint(x: self.scrollView.frame.size.width * CGFloat(i),y:0), animated: true)
            // self.currentScanImage = nil
             
-        }
+            
+            
+//            self.viewDidLayoutSubviews()
+            
+            
+            //self.scrollView.populateScrollView(images: [self.currentScanImage!], append: true)
+   //     }
         
-        }
+   //     }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -150,10 +170,16 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         
         currentScanImage = selectedImage
         self.dismiss(animated: true)
+        
+        //ADDED
+      // currentScanImage = selectedImage
     }
     
     func prepareScan(){
     
+        //reinit currentscanimage
+        self.currentScanImage = nil
+        
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self as! UIImagePickerControllerDelegate & UINavigationControllerDelegate
         
@@ -335,6 +361,13 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         self.formScrollView.contentInset = contentInset
     }
+    //VIEWDIDLOAD
     
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        //scrollView.setNeedsDisplay()
+        self.scrollView.populateScrollView(images: images!,mode: UIViewContentMode.scaleAspectFit)
+       //go to last scan
+        scrollView.scrollToRight(animation: true)
+    }
 }
