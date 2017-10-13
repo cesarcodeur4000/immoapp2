@@ -124,7 +124,13 @@ class BienImmobilierDetailsImages: Object{
     override static func primaryKey() -> String? {
         return "id"
     }
+    //propriétés calculées
+    var listUIImages : Array<UIImage>{
+        return self.listimage.map({ (imageImo) -> UIImage in
+        return imageImo.image
+        })
     
+    }
 }
 class DossierClient: Object {
     

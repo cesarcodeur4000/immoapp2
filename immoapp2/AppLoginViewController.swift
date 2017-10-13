@@ -66,7 +66,7 @@ class AppLoginViewController: UIViewController {
     }
     
     func commonRealmConfig(user: SyncUser) -> Realm.Configuration  {
-        let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: Constants.syncServerURL!), objectTypes: [Dog.self])
+        let config = Realm.Configuration(syncConfiguration: SyncConfiguration(user: user, realmURL: Constants.syncServerURL!),  objectTypes: [Dog.self,BienImmobilier.self,DossierClientDetail.self,ImageImmo.self,BienImmobilierWithPics.self,BienImmobilierDetailsImages.self,BienImmobilierAppartement.self])
         return config
     }
 

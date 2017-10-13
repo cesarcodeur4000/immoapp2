@@ -141,4 +141,5 @@ extension UIView {
 
 class MKBienImmoPointAnnotation : MKPointAnnotation {
     var immoData:BienImmobilierDetailsImages?
+    var imageName: String!
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import RealmSwift
 
-class DossierClientViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+class DossierClientViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate, UIScrollViewDelegate  {
 
     
     //MARK:- IBOUTLETS
@@ -68,6 +68,15 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         images = []
         scrollView.setNeedsDisplay()
         
+        //ZOOMING
+        //scrollView.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        //scro
+        scrollView.delegate = self
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 4.0
+        scrollView.zoomScale = 1.0
+        setupGestureRecognizer()
+        
         // Do any additional setup after loading the view.
         //TEST
         // loadImageStringFromRealm()
@@ -76,6 +85,8 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -367,7 +378,67 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         super.viewDidLayoutSubviews()
         //scrollView.setNeedsDisplay()
         self.scrollView.populateScrollView(images: images!,mode: UIViewContentMode.scaleAspectFit)
-       //go to last scan
+       //scroll to last scan
         scrollView.scrollToRight(animation: true)
+    }
+    //DELEGATE ZOOMING
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        
+        
+        if scrollView === self.scrollView{
+            //scrollView.layoutIfNeeded()
+            if (scrollView.subviews.isEmpty || (scrollView.frame.size.width <= 0 )){
+                print("NIIL")
+                return nil
+                
+            }
+            else {
+                
+                
+                let  pageIndex:Int = Int(scrollView.contentOffset.x/(self.scrollView.frame.size.width ))
+                print("PAGE INDEX ",pageIndex,"ZZOM",scrollView.zoomScale)
+                
+                return  scrollView.subviews[min(pageIndex,scrollView.subviews.count-1)]
+                
+            }
+            //return self.scrollView.subviews[pageIndex]
+            
+            
+        }
+        else {return nil}
+    }
+    
+    
+    func scrollViewDidZoom(_ scrollView: UIScrollView) {
+        
+        
+    }
+    func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
+        
+        print("SCALE",scale)
+        if scale <= 1.0 {
+            //reset size
+            
+            viewDidLayoutSubviews()}
+    }
+    //func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        
+      
+        
+   // }
+    
+    func setupGestureRecognizer() {
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+        doubleTap.numberOfTapsRequired = 2
+        scrollView.addGestureRecognizer(doubleTap)
+    }
+    
+    func handleDoubleTap(_ recognizer: UITapGestureRecognizer) {
+        
+        if (scrollView.zoomScale > scrollView.minimumZoomScale) {
+            scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
+        } else {
+            scrollView.setZoomScale(scrollView.maximumZoomScale, animated: true)
+        }
     }
 }

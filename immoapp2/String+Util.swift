@@ -20,7 +20,11 @@ extension String{
     }
 }
 
-
-
+func timer(_ second: Double ){
+let when = DispatchTime.now() + second // change 2 to desired number of seconds
+DispatchQueue.main.asyncAfter(deadline: when) {
+    // Your code with delay
+}
+}
 //USAGE
 //"HELLO".localized (voir fichier Localizable.strings)

@@ -13,13 +13,19 @@ import RealmSwift
 
 class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
-     var locationManager:CLLocationManager!
+    //realm notification
+    var notificationToken: NotificationToken?
+    var notificationConnectToken : NotificationToken?
+    
+    var locationManager:CLLocationManager!
     var selectedBI: BienImmobilierDetailsImages?
     let regionRadius: CLLocationDistance = 1000
     
     //let locationManager = CLLocationManager()
     
+    @IBOutlet weak var progressView: UIProgressView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
     
     
@@ -39,8 +45,10 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
 //        self.locationManager.startUpdatingLocation()
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
-        
         self.addPins()
+        
+        self.activityIndicator.hidesWhenStopped = true
+        self.progressView.setProgress(0, animated: true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,6 +60,12 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     override func viewDidAppear(_ animated: Bool) {
         
         determineCurrentLocation()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        notificationToken?.stop()
+        
+        notificationConnectToken?.stop()
     }
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
@@ -74,19 +88,83 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     }
     
     func addPins() {
+       // self.activityIndicator.startAnimating()
+   //     let session = SyncUser.current?.session(for: Constants.syncServerURL!)!
+        let realm = try! Realm()
+        //activity
+         notificationConnectToken = realm.addNotificationBlock { [unowned self] note, realm in
+            //let realm = try! Realm()
+            
+            let bimspics: Results<BienImmobilierDetailsImages> = { realm.objects(BienImmobilierDetailsImages.self) }()
+            
+            for bi in bimspics{
+                
+                print("BIM2",bi.nom,bi.longitude, bi.latitude)
+                let location = CLLocationCoordinate2D(latitude: bi.latitude, longitude: bi.longitude)
+                self.addImmoPin(title: bi.nom, location: location,bienimmo: bi)
+            }
+            
+            
+            //CENTRAGE sur les PINANNOTATIONS
+            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+           // self.activityIndicator.stopAnimating()
+            self.progressView.isHidden = true
+        }
+        //notificationTokenconnect.stop()
+        
+        
+//        notificationToken = session?.addProgressNotification(for: .download,
+//                                                    mode: .reportIndefinitely) { progress in
+//                                                        if progress.isTransferComplete {
+//                                                            self.activityIndicator.stopAnimating()
+//                                                        } else {
+//                                                            self.activityIndicator.startAnimating()
+//                                                        }
+//        }
+
+  
+        
+        
+//    self.notificationToken = session?.addProgressNotification(for: .download ,
+//                                                 mode: .forCurrentlyOutstandingWork) { progress in
+//                                                   // self.progressView.setProgress(Float(progress.fractionTransferred), animated: true)
+//                                                    //DATA CODE
+//                                                    
+//                                                    let realm = try! Realm()
+//                                                    
+//                                                    let bimspics: Results<BienImmobilierDetailsImages> = { realm.objects(BienImmobilierDetailsImages.self) }()
+//                                                    
+//                                                    for bi in bimspics{
+//                                                       
+//                                                        print("BIM2",bi.nom,bi.longitude, bi.latitude)
+//                                                        let location = CLLocationCoordinate2D(latitude: bi.latitude, longitude: bi.longitude)
+//                                                        self.addImmoPin(title: bi.nom, location: location,bienimmo: bi)
+//                                                    }
+//                                                    
+//                                                    //END DATACODE
+//                                                    
+//                                                    
+//                                                    if progress.isTransferComplete {
+//                                                        //self.hideProgressBar()
+//                                                        self.activityIndicator.stopAnimating()
+//                                                        //self.notificationToken?.stop()
+//                                                        self.progressView.isHidden = true
+//                                                    }
+//    }
+//    
+//
+        
+        
+        
+        //end activity
+        
+        
+        
+        
         
         //retrienve pins from REalm
-        let realm = try! Realm()
-        //var dogs: Results<Dog>?
-//        let bims: Results<BienImmobilier> = { realm.objects(BienImmobilier.self) }()
-//        
-//        for bi in bims {
-//            
-//            print("BIM1",bi.name,bi.longitude, bi.latitude)
-//            let location = CLLocationCoordinate2D(latitude: bi.latitude, longitude: bi.longitude)
-//            addPin(title: bi.name, location: location)
-//        }
-        
+        //let realm = try! Realm()
+               
         let bimspics: Results<BienImmobilierDetailsImages> = { realm.objects(BienImmobilierDetailsImages.self) }()
         
         for bi in bimspics{
@@ -99,6 +177,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         //CENTRAGE sur les PINANNOTATIONS
         mapView.showAnnotations(mapView.annotations, animated: true)
+        activityIndicator.stopAnimating()
+        progressView.isHidden = true
 
     }
     //add general info pin
@@ -113,12 +193,17 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     //add Immo special pin
     
     func addImmoPin(title titlepin: String,location locationpin: CLLocationCoordinate2D,bienimmo bienimmopin: BienImmobilierDetailsImages){
+       
+        DispatchQueue.main.async {
+            let pin = MKBienImmoPointAnnotation()
+            pin.coordinate = locationpin
+            pin.title = titlepin
+            pin.immoData = bienimmopin
+            pin.imageName = "icons8-MapPin-64"
+            self.mapView.addAnnotation(pin)
+             self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+        }
         
-        let pin = MKBienImmoPointAnnotation()
-        pin.coordinate = locationpin
-        pin.title = titlepin
-        pin.immoData = bienimmopin
-        mapView.addAnnotation(pin)
         
     }
     
@@ -136,6 +221,9 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                 pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinId)
                 
                 pinView.pinColor = .purple
+                let newannotation = annotation as! MKBienImmoPointAnnotation
+                pinView.image = UIImage(named: newannotation.imageName)
+              //  pinView.set
                 //pinView.isDraggable = true
                 pinView.canShowCallout = true
                 pinView.animatesDrop = true
@@ -151,6 +239,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                 
                 
             }
+            pinView.image = UIImage(named: "star")
             return pinView
             
         }
