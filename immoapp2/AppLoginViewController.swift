@@ -25,6 +25,8 @@ class AppLoginViewController: UIViewController {
         //loginViewController.isRegistering = true
         loginViewController.isCopyrightLabelHidden = true
         loginViewController.rememberLogin = false
+        loginViewController.isRememberAccountDetailsFieldHidden = true
+        loginViewController.password = ""
         loginViewController.allowsNewAccountRegistration = false
         
         
@@ -32,12 +34,13 @@ class AppLoginViewController: UIViewController {
         
         
         
-        if (SyncUser.current != nil) {
+      //  if (SyncUser.current != nil) {
             // yup - we've got a stored session, so just go right to the UITabView
-            Realm.Configuration.defaultConfiguration = commonRealmConfig(user: SyncUser.current!)
+            SyncUser.current?.logOut()
+         //   Realm.Configuration.defaultConfiguration = commonRealmConfig(user: SyncUser.current!)
             
-            performSegue(withIdentifier: Constants.kLoginToMainView, sender: self)
-        } else {
+        //    performSegue(withIdentifier: Constants.kLoginToMainView, sender: self)
+       // } else {
             // show the RealmLoginKit controller
             if loginViewController!.serverURL == nil {
                 loginViewController!.serverURL = Constants.syncAuthURL.absoluteString
@@ -62,7 +65,7 @@ class AppLoginViewController: UIViewController {
             }// of login controller
             
             present(loginViewController, animated: true, completion: nil)
-        }
+       // }
     }
     
     func commonRealmConfig(user: SyncUser) -> Realm.Configuration  {
