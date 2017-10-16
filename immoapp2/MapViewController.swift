@@ -212,22 +212,22 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         if annotation is MKBienImmoPointAnnotation{
             let pinId = "myPinIdentifierforBI"
-            var pinView: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinId) as? MKPinAnnotationView {
+            var pinView: MKAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinId) as? MKBienImmoAnnotationView  {
                 dequeuedView.annotation = annotation
                 pinView = dequeuedView
                 
             }else{
                 
-                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinId)
+                pinView = MKBienImmoAnnotationView(annotation: annotation, reuseIdentifier: pinId)
                 
-                pinView.pinColor = .purple
+                //pinView.pinColor = .purple
                 let newannotation = annotation as! MKBienImmoPointAnnotation
-                pinView.image = UIImage(named: newannotation.imageName)
+              //  pinView.image = UIImage(named: newannotation.imageName)
               //  pinView.set
                 //pinView.isDraggable = true
                 pinView.canShowCallout = true
-                pinView.animatesDrop = true
+              //  pinView.animatesDrop = true
                 
                 let goButton = UIButton(type: UIButtonType.custom) as UIButton
                 goButton.frame.size.width = 44
@@ -240,7 +240,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                 
                 
             }
-            pinView.image = UIImage(named: "star")
+          //  pinView.image = UIImage(named: "star")
             return pinView
             
         }

@@ -143,3 +143,18 @@ class MKBienImmoPointAnnotation : MKPointAnnotation {
     var immoData:BienImmobilierDetailsImages?
     var imageName: String!
 }
+class MKBienImmoAnnotationView: MKAnnotationView {
+    
+    // Required for MKAnnotationView
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
+        super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
+        guard let attractionAnnotation = self.annotation as? MKBienImmoPointAnnotation else { return }
+        
+        image = UIImage(named: "icons8-MapPin-64")
+    }
+    
+}
