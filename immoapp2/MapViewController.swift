@@ -28,6 +28,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var segmentedView: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -396,5 +397,14 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
 
 }
+    
+        @IBAction func indexChanged(_ sender: UISegmentedControl) {
+            
+            
+             mapView.mapType = MKMapType.init(rawValue: UInt(sender.selectedSegmentIndex)) ?? .standard
+          
+                      
+            
+    }
 
 }

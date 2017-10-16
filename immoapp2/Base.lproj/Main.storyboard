@@ -65,7 +65,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="829" y="113"/>
+            <point key="canvasLocation" x="893" y="-1097"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="3Ft-co-ReC">
@@ -85,8 +85,21 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bd5-fs-A9W">
                                 <rect key="frame" x="104" y="367" width="206" height="2"/>
                             </progressView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="93P-UV-KRc">
+                                <rect key="frame" x="101.66666666666669" y="79" width="212" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybride"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="indexChanged:" destination="6Q1-y4-FrH" eventType="valueChanged" id="Hao-eH-btM"/>
+                                </connections>
+                            </segmentedControl>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TzH-WY-tK1">
-                                <rect key="frame" x="188.66666666666666" y="349.66666666666669" width="37" height="37"/>
+                                <rect key="frame" x="189" y="350" width="37" height="37"/>
                                 <color key="color" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -94,6 +107,8 @@
                         <constraints>
                             <constraint firstItem="TzH-WY-tK1" firstAttribute="centerX" secondItem="KYL-7a-GZp" secondAttribute="centerX" id="1id-PU-tB3"/>
                             <constraint firstItem="TzH-WY-tK1" firstAttribute="centerX" secondItem="KYL-7a-GZp" secondAttribute="centerX" id="2R8-cM-PKE"/>
+                            <constraint firstItem="93P-UV-KRc" firstAttribute="top" secondItem="m7z-57-ZZl" secondAttribute="bottom" constant="15" id="3he-Q0-nPL"/>
+                            <constraint firstItem="93P-UV-KRc" firstAttribute="centerX" secondItem="KYL-7a-GZp" secondAttribute="centerX" id="4nK-62-iht"/>
                             <constraint firstItem="bd5-fs-A9W" firstAttribute="centerY" secondItem="KYL-7a-GZp" secondAttribute="centerY" id="AFD-jh-bxm"/>
                             <constraint firstItem="y2u-mY-pSA" firstAttribute="top" secondItem="gbI-cB-kGi" secondAttribute="bottom" id="JbL-fK-DRQ"/>
                             <constraint firstItem="bd5-fs-A9W" firstAttribute="leading" secondItem="KYL-7a-GZp" secondAttribute="leadingMargin" constant="84" id="LL9-h1-s8h"/>
@@ -112,12 +127,13 @@
                         <outlet property="activityIndicator" destination="TzH-WY-tK1" id="KOW-Nv-LKh"/>
                         <outlet property="mapView" destination="gbI-cB-kGi" id="DAT-EV-bSW"/>
                         <outlet property="progressView" destination="bd5-fs-A9W" id="h3F-ox-OAa"/>
+                        <outlet property="segmentedView" destination="93P-UV-KRc" id="lDh-LD-I8N"/>
                         <segue destination="oZC-0y-L4w" kind="show" identifier="SegueMapToDetailBI" id="Krv-20-qpK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BtJ-qu-DpX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1853.5999999999999" y="77.811094452773617"/>
+            <point key="canvasLocation" x="1957" y="-82"/>
         </scene>
         <!--Dossier Client View Controller-->
         <scene sceneID="0bX-Zz-okd">
@@ -227,7 +243,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rok-Dy-bBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3333.3333333333335" y="-817.66304347826099"/>
+            <point key="canvasLocation" x="3623" y="-82"/>
         </scene>
         <!--Detail Bien Immo With Pics View Controller-->
         <scene sceneID="kl7-Ae-d2T">
@@ -337,7 +353,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZN-c0-8gH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2920.8000000000002" y="-82.3088455772114"/>
+            <point key="canvasLocation" x="2787" y="-82"/>
         </scene>
         <!--App Login View Controller-->
         <scene sceneID="BwW-wa-51E">
@@ -350,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VMY-UK-Cbm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="860.054347826087"/>
+            <point key="canvasLocation" x="1265" y="-82"/>
         </scene>
         <!--Main1 View Controller-->
         <scene sceneID="iLh-Bc-2sX">
@@ -426,7 +442,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ymw-AR-h2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="995.65217391304361" y="860.054347826087"/>
+            <point key="canvasLocation" x="555" y="-82"/>
         </scene>
     </scenes>
 </document>
