@@ -147,18 +147,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMe-vf-GVn">
-                                <rect key="frame" x="151" y="353" width="112" height="30"/>
-                                <state key="normal" title="AJOUTER SCAN">
-                                    <color key="titleColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addScan:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="NBY-zd-CxS"/>
-                                </connections>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jli-uf-xyZ">
-                                <rect key="frame" x="45" y="86" width="333" height="259"/>
-                            </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6p-dl-SSu">
                                 <rect key="frame" x="45" y="674" width="333" height="42"/>
                                 <constraints>
@@ -171,31 +159,48 @@
                                     <action selector="addClient:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="4Vi-9l-nN2"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w6i-m4-oEy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMe-vf-GVn">
+                                <rect key="frame" x="151" y="353" width="112" height="30"/>
+                                <state key="normal" title="AJOUTER SCAN">
+                                    <color key="titleColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addScan:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="NBY-zd-CxS"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jli-uf-xyZ">
+                                <rect key="frame" x="45" y="86" width="333" height="259"/>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w6i-m4-oEy">
                                 <rect key="frame" x="30" y="391" width="354" height="275"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="30v-81-u5q">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="150"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-6H-MgE">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0LY-6H-MgE">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="30"/>
                                                 <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTI-JW-zb3">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTI-JW-zb3">
                                                 <rect key="frame" x="0.0" y="40" width="354" height="30"/>
                                                 <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Phone Number" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B98-lu-Tk2">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B98-lu-Tk2">
                                                 <rect key="frame" x="0.0" y="80" width="354" height="30"/>
                                                 <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-Nq-rM4">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fvV-Nq-rM4">
                                                 <rect key="frame" x="0.0" y="120" width="354" height="30"/>
                                                 <color key="textColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -205,14 +210,22 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="30v-81-u5q" secondAttribute="bottom" constant="125" id="O02-j7-Kjw"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="30v-81-u5q" secondAttribute="trailing" constant="258" id="PHz-ZP-uRl"/>
+                                    <constraint firstItem="30v-81-u5q" firstAttribute="width" secondItem="w6i-m4-oEy" secondAttribute="width" id="De0-O4-QXb"/>
+                                    <constraint firstItem="30v-81-u5q" firstAttribute="top" secondItem="w6i-m4-oEy" secondAttribute="top" id="Em2-cY-Zuk"/>
+                                    <constraint firstItem="30v-81-u5q" firstAttribute="leading" secondItem="w6i-m4-oEy" secondAttribute="leading" id="NcU-rB-9F0"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="30v-81-u5q" secondAttribute="trailing" id="PHz-ZP-uRl"/>
                                     <constraint firstItem="30v-81-u5q" firstAttribute="top" secondItem="w6i-m4-oEy" secondAttribute="top" id="YBE-uS-coQ"/>
-                                    <constraint firstItem="30v-81-u5q" firstAttribute="centerX" secondItem="w6i-m4-oEy" secondAttribute="centerX" id="oUe-Vv-vVS"/>
-                                    <constraint firstAttribute="bottom" secondItem="30v-81-u5q" secondAttribute="bottom" constant="125" id="sMO-o7-h83"/>
-                                    <constraint firstItem="30v-81-u5q" firstAttribute="leading" secondItem="w6i-m4-oEy" secondAttribute="leading" id="xYG-QN-JUN"/>
+                                    <constraint firstAttribute="bottom" secondItem="30v-81-u5q" secondAttribute="bottom" id="aFu-1z-Zaz"/>
                                 </constraints>
                             </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SOx-dV-B5A">
+                                <rect key="frame" x="147" y="20" width="121" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Formulaire"/>
+                                    <segment title="Scan"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
@@ -243,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rok-Dy-bBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3623" y="-82"/>
+            <point key="canvasLocation" x="3621.739130434783" y="-82.33695652173914"/>
         </scene>
         <!--Detail Bien Immo With Pics View Controller-->
         <scene sceneID="kl7-Ae-d2T">

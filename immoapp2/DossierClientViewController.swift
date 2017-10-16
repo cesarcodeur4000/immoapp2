@@ -77,6 +77,11 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
         scrollView.zoomScale = 1.0
         setupGestureRecognizer()
         
+        
+        nameTextField.placeholder = "Nom"
+        firstnameTextField.placeholder = "Prénom"
+        phoneTextField.placeholder = "Numéro de téléphone"
+        emailTextField.placeholder = "Email"
         // Do any additional setup after loading the view.
         //TEST
         // loadImageStringFromRealm()

@@ -20,7 +20,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     var locationManager:CLLocationManager!
     var selectedBI: BienImmobilierDetailsImages?
     let regionRadius: CLLocationDistance = 1000
-    
+    var lastLocation : CLLocation?
+    var currentLocation: CLLocation?
     //let locationManager = CLLocationManager()
     
     @IBOutlet weak var progressView: UIProgressView!
@@ -61,6 +62,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     override func viewDidAppear(_ animated: Bool) {
         
         determineCurrentLocation()
+        mapView.zoomMapaFitAnnotations()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -76,16 +78,38 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
     {
-        if let currentLocation = locations.first{
+                if let currentLocation = locations.first{
             
-            
+            self.currentLocation = currentLocation
             print(currentLocation.coordinate)
             print(currentLocation.timestamp)
             print(currentLocation.horizontalAccuracy)
             
+        
+    
+        //si deplacement > 50 m refresh de la map
+        if let lastlocation = lastLocation {
+            
+            //si deplacement > 25 metres refresh de la map
+            if lastlocation.distance(from: self.currentLocation!)>25{
+                print("DEPLACEMENT")
+                
+                 mapView.layoutMargins = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
+               // mapView.showAnnotations(mapView.annotations, animated: true)
+               // centerMapOnLocation(location: currentLocation)
+                mapView.zoomMapaFitAnnotations()
+                lastLocation = currentLocation
+            }
+            
+           
+        }
+        else {
+            
+            lastLocation = currentLocation
+                mapView.zoomMapaFitAnnotations()
         }
         
-        
+        }
     }
     
     func addPins() {
@@ -178,6 +202,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         //CENTRAGE sur les PINANNOTATIONS
         mapView.showAnnotations(mapView.annotations, animated: true)
+        mapView.zoomMapaFitAnnotations()
+
         activityIndicator.stopAnimating()
         progressView.isHidden = true
 
