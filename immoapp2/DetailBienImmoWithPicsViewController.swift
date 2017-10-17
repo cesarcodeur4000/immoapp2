@@ -84,7 +84,7 @@ class DetailBienImmoWithPicsViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "SegueToDossierClient" {
-            let destinationViewController = segue.destination as! DossierClientViewController
+            let destinationViewController = segue.destination as! DossierClientSegmentViewController //DossierClientViewController
             destinationViewController.bienImmo = self.bienImmo
             
         }

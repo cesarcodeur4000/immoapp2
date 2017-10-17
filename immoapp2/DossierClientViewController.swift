@@ -131,7 +131,7 @@ class DossierClientViewController: UIViewController,UINavigationControllerDelega
    
     @IBAction func addScan(_ sender: Any) {
     
-       var  i = 0
+        var  i = 0
         if let count = images?.count,count > 0 {
              i = count
         }

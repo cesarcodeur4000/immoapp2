@@ -168,8 +168,8 @@
                                     <action selector="addScan:" destination="g0u-Ri-TBi" eventType="touchUpInside" id="NBY-zd-CxS"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jli-uf-xyZ">
-                                <rect key="frame" x="45" y="86" width="333" height="259"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jli-uf-xyZ">
+                                <rect key="frame" x="45" y="94" width="333" height="251"/>
                             </scrollView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w6i-m4-oEy">
                                 <rect key="frame" x="30" y="391" width="354" height="275"/>
@@ -218,14 +218,6 @@
                                     <constraint firstAttribute="bottom" secondItem="30v-81-u5q" secondAttribute="bottom" id="aFu-1z-Zaz"/>
                                 </constraints>
                             </scrollView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SOx-dV-B5A">
-                                <rect key="frame" x="147" y="20" width="121" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Formulaire"/>
-                                    <segment title="Scan"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
@@ -245,6 +237,8 @@
                             <constraint firstItem="jli-uf-xyZ" firstAttribute="trailing" secondItem="X6p-dl-SSu" secondAttribute="trailing" id="tBv-Sh-h3P"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="emailTextField" destination="fvV-Nq-rM4" id="VI6-mF-2y6"/>
                         <outlet property="firstnameTextField" destination="mTI-JW-zb3" id="Ok2-Z8-OEx"/>
@@ -256,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rok-Dy-bBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3621.739130434783" y="-82.33695652173914"/>
+            <point key="canvasLocation" x="4393" y="-82"/>
         </scene>
         <!--Detail Bien Immo With Pics View Controller-->
         <scene sceneID="kl7-Ae-d2T">
@@ -361,12 +355,30 @@
                         <outlet property="descriptionBI" destination="IZo-v7-5Jm" id="kq5-gm-JPF"/>
                         <outlet property="nomBI" destination="jNR-us-tqt" id="h9w-dm-rvA"/>
                         <outlet property="scrollView" destination="dK5-xC-Tdj" id="Can-pX-aed"/>
-                        <segue destination="g0u-Ri-TBi" kind="show" identifier="SegueToDossierClient" id="NkN-24-4rz"/>
+                        <segue destination="12A-KC-ajk" kind="show" identifier="SegueToDossierClient" id="uyy-ER-mQu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZN-c0-8gH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2787" y="-82"/>
+        </scene>
+        <!--Dossier Client Segment View Controller-->
+        <scene sceneID="ztx-rE-bBE">
+            <objects>
+                <viewController id="12A-KC-ajk" customClass="DossierClientSegmentViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oYU-FP-GEb"/>
+                        <viewControllerLayoutGuide type="bottom" id="PhK-ef-SG7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qhb-dh-ha7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r8q-dX-CGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3665" y="-82"/>
         </scene>
         <!--App Login View Controller-->
         <scene sceneID="BwW-wa-51E">
@@ -410,6 +422,132 @@
             </objects>
             <point key="canvasLocation" x="2786.9565217391305" y="838.04347826086962"/>
         </scene>
+        <!--Dossier Client Formulaire View Controller-->
+        <scene sceneID="2rw-6o-JRz">
+            <objects>
+                <viewController storyboardIdentifier="formulaireClientVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BO2-yv-zpS" customClass="DossierClientFormulaireViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WBK-YP-IUa"/>
+                        <viewControllerLayoutGuide type="bottom" id="hP6-Sl-uSo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N14-xM-k6s">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsT-Tf-8VL">
+                                <rect key="frame" x="0.66666666666665719" y="147" width="414" height="173"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-Fd-gpk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNr-s9-uew">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Dg-35-fDi">
+                                                <rect key="frame" x="0.0" y="73" width="414" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5OH-mb-mU3">
+                                                <rect key="frame" x="0.0" y="108" width="414" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19Z-fy-GWy">
+                                                <rect key="frame" x="0.0" y="143" width="414" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Wrx-Fd-gpk" firstAttribute="width" secondItem="fsT-Tf-8VL" secondAttribute="width" id="9gn-gq-Mo7"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wrx-Fd-gpk" secondAttribute="bottom" id="Jpm-RH-0Uy"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wrx-Fd-gpk" secondAttribute="trailing" constant="264" id="NFi-aB-sDV" userLabel="trailing = Stack View.trailing "/>
+                                    <constraint firstItem="Wrx-Fd-gpk" firstAttribute="top" secondItem="fsT-Tf-8VL" secondAttribute="top" id="TqT-8w-W84"/>
+                                    <constraint firstItem="Wrx-Fd-gpk" firstAttribute="leading" secondItem="fsT-Tf-8VL" secondAttribute="leading" id="fdq-pq-NXH"/>
+                                    <constraint firstItem="Wrx-Fd-gpk" firstAttribute="height" secondItem="fsT-Tf-8VL" secondAttribute="height" id="tfB-Pb-CIj"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wrx-Fd-gpk" secondAttribute="trailing" constant="264" id="vdl-eR-rRm" userLabel="trailing = Stack View.trailing "/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyE-7g-9PN">
+                                <rect key="frame" x="148" y="68" width="119" height="30"/>
+                                <state key="normal" title="Enregistrer Client">
+                                    <color key="titleColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addclientAction:" destination="BO2-yv-zpS" eventType="touchUpInside" id="7NM-Md-PQb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hP6-Sl-uSo" firstAttribute="top" secondItem="fsT-Tf-8VL" secondAttribute="bottom" constant="416" id="Waa-Ow-GiK"/>
+                            <constraint firstItem="AyE-7g-9PN" firstAttribute="centerX" secondItem="N14-xM-k6s" secondAttribute="centerX" id="lCv-2q-0MS"/>
+                            <constraint firstItem="AyE-7g-9PN" firstAttribute="top" secondItem="WBK-YP-IUa" secondAttribute="bottom" constant="48" id="m60-d2-Usg"/>
+                            <constraint firstItem="fsT-Tf-8VL" firstAttribute="top" secondItem="WBK-YP-IUa" secondAttribute="bottom" constant="127" id="msD-xr-nnU"/>
+                            <constraint firstItem="fsT-Tf-8VL" firstAttribute="centerX" secondItem="N14-xM-k6s" secondAttribute="centerX" id="vHs-0X-oeH"/>
+                            <constraint firstItem="fsT-Tf-8VL" firstAttribute="width" secondItem="N14-xM-k6s" secondAttribute="width" id="yBX-gK-Czj" userLabel="Scroll View.width = width * 0.6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addclientButton" destination="AyE-7g-9PN" id="LoI-1Q-a5b"/>
+                        <outlet property="emailTextField" destination="19Z-fy-GWy" id="q68-ju-gk6"/>
+                        <outlet property="firstnameTextField" destination="7Dg-35-fDi" id="Bx3-Gl-hHt"/>
+                        <outlet property="formScrollView" destination="fsT-Tf-8VL" id="n1y-rc-nT3"/>
+                        <outlet property="nameTextField" destination="xNr-s9-uew" id="iMG-3G-i4e"/>
+                        <outlet property="phoneTextField" destination="5OH-mb-mU3" id="ZDC-KW-SmU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ASx-09-pBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4037.68115942029" y="678.26086956521749"/>
+        </scene>
+        <!--Dossier Client Scan View Controller-->
+        <scene sceneID="Y5m-iR-2OU">
+            <objects>
+                <viewController storyboardIdentifier="scanClientVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vll-iy-3q3" customClass="DossierClientScanViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ihd-FN-nbf"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wwm-3S-SMo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P8p-bF-taU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw4-C5-i3n">
+                                <rect key="frame" x="66" y="62" width="282" height="275"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTm-nW-qaa">
+                                <rect key="frame" x="171" y="385" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Scan">
+                                    <color key="titleColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanAction:" destination="vll-iy-3q3" eventType="touchUpInside" id="3jr-ak-fkb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <connections>
+                        <outlet property="scanButton" destination="HTm-nW-qaa" id="AH3-ZT-o90"/>
+                        <outlet property="scrollView" destination="xw4-C5-i3n" id="PIx-hU-0I3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSi-qw-uFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4789.8550724637689" y="708.42391304347836"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="Rhk-i8-y1B">
             <objects>
@@ -437,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYO-lh-4bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3665.217391304348" y="736.14130434782612"/>
+            <point key="canvasLocation" x="2054" y="838"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y4J-O7-IlV">

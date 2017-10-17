@@ -94,9 +94,9 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             if lastlocation.distance(from: self.currentLocation!)>25{
                 print("DEPLACEMENT")
                 
-                 mapView.layoutMargins = UIEdgeInsets(top: 25, left: 25, bottom: 25, right: 25)
-               // mapView.showAnnotations(mapView.annotations, animated: true)
-               // centerMapOnLocation(location: currentLocation)
+                 mapView.layoutMargins = UIEdgeInsets(top: 40, left: 25, bottom: 25, right: 25)
+                mapView.showAnnotations(mapView.annotations, animated: true)
+                centerMapOnLocation(location: currentLocation)
                 mapView.zoomMapaFitAnnotations()
                 lastLocation = currentLocation
             }
@@ -131,7 +131,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             
             
             //CENTRAGE sur les PINANNOTATIONS
-            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+           // self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+            self.mapView.zoomMapaFitAnnotations()
            // self.activityIndicator.stopAnimating()
             self.progressView.isHidden = true
         }
@@ -201,7 +202,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         
         //CENTRAGE sur les PINANNOTATIONS
-        mapView.showAnnotations(mapView.annotations, animated: true)
+       // mapView.showAnnotations(mapView.annotations, animated: true)
         mapView.zoomMapaFitAnnotations()
 
         activityIndicator.stopAnimating()
@@ -229,6 +230,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             pin.imageName = "icons8-MapPin-64"
             self.mapView.addAnnotation(pin)
              self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+            self.mapView.zoomMapaFitAnnotations()
         }
         
         
@@ -401,13 +403,14 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         let center = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
-        mapView.setRegion(region, animated: true)
+      //  mapView.setRegion(region, animated: true)
         
         // Drop a pin at user's Current Location
         let myAnnotation: MKPointAnnotation = MKPointAnnotation()
         myAnnotation.coordinate = CLLocationCoordinate2DMake(userLocation.coordinate.latitude, userLocation.coordinate.longitude);
         myAnnotation.title = "Current location"
         mapView.addAnnotation(myAnnotation)
+        mapView.zoomMapaFitAnnotations()
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
