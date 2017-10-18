@@ -438,28 +438,28 @@
                                 <rect key="frame" x="0.66666666666665719" y="147" width="414" height="173"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-Fd-gpk">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="173"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNr-s9-uew">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Dg-35-fDi">
-                                                <rect key="frame" x="0.0" y="73" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="35" width="414" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5OH-mb-mU3">
-                                                <rect key="frame" x="0.0" y="108" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="70" width="414" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19Z-fy-GWy">
-                                                <rect key="frame" x="0.0" y="143" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="105" width="414" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -473,8 +473,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Wrx-Fd-gpk" secondAttribute="trailing" constant="264" id="NFi-aB-sDV" userLabel="trailing = Stack View.trailing "/>
                                     <constraint firstItem="Wrx-Fd-gpk" firstAttribute="top" secondItem="fsT-Tf-8VL" secondAttribute="top" id="TqT-8w-W84"/>
                                     <constraint firstItem="Wrx-Fd-gpk" firstAttribute="leading" secondItem="fsT-Tf-8VL" secondAttribute="leading" id="fdq-pq-NXH"/>
-                                    <constraint firstItem="Wrx-Fd-gpk" firstAttribute="height" secondItem="fsT-Tf-8VL" secondAttribute="height" id="tfB-Pb-CIj"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wrx-Fd-gpk" secondAttribute="trailing" constant="264" id="vdl-eR-rRm" userLabel="trailing = Stack View.trailing "/>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyE-7g-9PN">

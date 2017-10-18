@@ -62,7 +62,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
     override func viewDidAppear(_ animated: Bool) {
         
         determineCurrentLocation()
-        mapView.zoomMapaFitAnnotations()
+        //mapView.zoomMapaFitAnnotations()
+        mapView.fitMapViewToAnnotationList()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -94,11 +95,28 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             if lastlocation.distance(from: self.currentLocation!)>25{
                 print("DEPLACEMENT")
                 
-                 mapView.layoutMargins = UIEdgeInsets(top: 40, left: 25, bottom: 25, right: 25)
+                 mapView.layoutMargins = UIEdgeInsets(top: 25 ,left: 25, bottom: 25, right: 25)
                 mapView.showAnnotations(mapView.annotations, animated: true)
-                centerMapOnLocation(location: currentLocation)
-                mapView.zoomMapaFitAnnotations()
+                //centerMapOnLocation(location: currentLocation)
+                mapView.fitMapViewToAnnotationList()
                 lastLocation = currentLocation
+                //update de l'adresse sur le pin current location
+                
+                 GoogleGeoCodingHelper.performGoogleSearch(latitude: currentLocation.coordinate.latitude.description, longitude: currentLocation.coordinate.longitude.description){ (result) -> Void in
+                    
+                    let adressedegoogle = result
+                    self.mapView.userLocation.title = adressedegoogle
+                    //        print("GOOHANDLER",adressedegoogle)
+                    //        // Drop a pin at user's Current Location
+                    //        let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+                    //        myAnnotation.coordinate = CLLocationCoordinate2DMake(ul.coordinate.latitude, ul.coordinate.longitude);
+                    //        myAnnotation.title = adressedegoogle//"Current location"
+                    print("GOOTITLE2",adressedegoogle)
+                    //        self.mapView.addAnnotation(myAnnotation)
+                    //        self.mapView.zoomMapaFitAnnotations()
+                    //        print("LOCA GOO",ul.description)
+                    }
+
             }
             
            
@@ -106,7 +124,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         else {
             
             lastLocation = currentLocation
-                mapView.zoomMapaFitAnnotations()
+                mapView.fitMapViewToAnnotationList()
         }
         
         }
@@ -131,7 +149,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             
             
             //CENTRAGE sur les PINANNOTATIONS
-           // self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+            self.mapView.showAnnotations(self.mapView.annotations, animated: true)
             self.mapView.zoomMapaFitAnnotations()
            // self.activityIndicator.stopAnimating()
             self.progressView.isHidden = true
@@ -202,7 +220,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         
         
         //CENTRAGE sur les PINANNOTATIONS
-       // mapView.showAnnotations(mapView.annotations, animated: true)
+        mapView.showAnnotations(mapView.annotations, animated: true)
         mapView.zoomMapaFitAnnotations()
 
         activityIndicator.stopAnimating()
@@ -278,11 +296,12 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             if annotation is MKUserLocation{
                 
                 let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPinIdentifierlocuser")
+                pinView.pinTintColor = UIColor.cyan
                 return pinView
             }else{
                 let pinId = "myPinIdentifier"
-                var pinView: MKPinAnnotationView
-                if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinId) as? MKPinAnnotationView {
+                var pinView: MKAnnotationView
+                if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinId) as? MKAnnotationView {
                     dequeuedView.annotation = annotation
                     pinView = dequeuedView
                     
@@ -307,26 +326,21 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
                     
                     
                 }else{
-                    pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinId)
-                    
-                    pinView.pinColor = .purple
+                    pinView = MKAnnotationView(annotation: annotation, reuseIdentifier: pinId)
+                    pinView.image = UIImage(named: "icons8-MapPin-48")
+                   // pinView.pinTintColor = UIColor.cyan
                     //pinView.isDraggable = true
                     pinView.canShowCallout = true
-                    pinView.animatesDrop = true
+                   // pinView.animatesDrop = true
                     
-                    let goButton = UIButton(type: UIButtonType.custom) as UIButton
-                    goButton.frame.size.width = 44
-                    goButton.frame.size.height = 44
-                    goButton.backgroundColor = UIColor.purple
-                    goButton.setImage(UIImage(named: "check-sign(1)"), for: [.normal])
-                    
-                    pinView.leftCalloutAccessoryView = goButton
+                   
                     
                 }
                 return pinView
             }
-            
+           
         }
+       
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -371,6 +385,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
   }
     func determineCurrentLocation()
     {
+        var adressedegoogle: String = ""
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -386,6 +401,30 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
             //locationManager.startUpdatingHeading()
             locationManager.pausesLocationUpdatesAutomatically = true
             locationManager.startUpdatingLocation()
+        }
+        print("LOCA GOOold")
+       // print("LOCA GOO",userLocation.description)
+        
+        //  GoogleGeoCodingHelper.getAddressForLatLng(latitude: userLocation.coordinate.latitude.description, longitude: userLocation.coordinate.longitude.description)
+       if let ul =  locationManager.location
+       { GoogleGeoCodingHelper.performGoogleSearch(latitude: ul.coordinate.latitude.description, longitude: ul.coordinate.longitude.description){ (result) -> Void in
+        
+        adressedegoogle = result
+       self.mapView.userLocation.title = adressedegoogle
+//        print("GOOHANDLER",adressedegoogle)
+//        // Drop a pin at user's Current Location
+//        let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+//        myAnnotation.coordinate = CLLocationCoordinate2DMake(ul.coordinate.latitude, ul.coordinate.longitude);
+//        myAnnotation.title = adressedegoogle//"Current location"
+        print("GOOTITLE",adressedegoogle)
+//        self.mapView.addAnnotation(myAnnotation)
+//        self.mapView.zoomMapaFitAnnotations()
+//        print("LOCA GOO",ul.description)
+        }
+       
+       
+        
+      
         }
     }
     
@@ -411,6 +450,10 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         myAnnotation.title = "Current location"
         mapView.addAnnotation(myAnnotation)
         mapView.zoomMapaFitAnnotations()
+        print("LOCA GOO",userLocation.description)
+        
+      //  GoogleGeoCodingHelper.getAddressForLatLng(latitude: userLocation.coordinate.latitude.description, longitude: userLocation.coordinate.longitude.description)
+        //GoogleGeoCodingHelper.performGoogleSearch(latitude: userLocation.coordinate.latitude.description, longitude: userLocation.coordinate.longitude.description)
     }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError)
@@ -432,7 +475,9 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
              mapView.mapType = MKMapType.init(rawValue: UInt(sender.selectedSegmentIndex)) ?? .standard
           
-                      
+             // mapView.showAnnotations(mapView.annotations, animated: true)
+           // mapView.zoomMapaFitAnnotations()
+            mapView.fitMapViewToAnnotationList()
             
     }
 

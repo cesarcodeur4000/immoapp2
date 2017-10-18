@@ -24,6 +24,7 @@
 		EC7D63301F83CA2800586292 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC7D632E1F83CA2800586292 /* LaunchScreen.storyboard */; };
 		EC7D63381F83CF1A00586292 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63371F83CF1A00586292 /* Constants.swift */; };
 		EC7D633A1F83D08800586292 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D63391F83D08800586292 /* Models.swift */; };
+		EC854C241F97367E00B84D28 /* GoogleGeoCodingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC854C231F97367E00B84D28 /* GoogleGeoCodingHelper.swift */; };
 		ECC0DB151F95F2BD009A88A9 /* DossierClientSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DB141F95F2BD009A88A9 /* DossierClientSegmentViewController.swift */; };
 		ECC0DB171F95F7C5009A88A9 /* DossierClientScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DB161F95F7C5009A88A9 /* DossierClientScanViewController.swift */; };
 		ECC0DB191F95F7DC009A88A9 /* DossierClientFormulaireViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC0DB181F95F7DC009A88A9 /* DossierClientFormulaireViewController.swift */; };
@@ -52,6 +53,7 @@
 		EC7D63311F83CA2800586292 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC7D63371F83CF1A00586292 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EC7D63391F83D08800586292 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		EC854C231F97367E00B84D28 /* GoogleGeoCodingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleGeoCodingHelper.swift; sourceTree = "<group>"; };
 		ECC0DB141F95F2BD009A88A9 /* DossierClientSegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DossierClientSegmentViewController.swift; sourceTree = "<group>"; };
 		ECC0DB161F95F7C5009A88A9 /* DossierClientScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DossierClientScanViewController.swift; sourceTree = "<group>"; };
 		ECC0DB181F95F7DC009A88A9 /* DossierClientFormulaireViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DossierClientFormulaireViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				ECC0DB141F95F2BD009A88A9 /* DossierClientSegmentViewController.swift */,
 				ECC0DB161F95F7C5009A88A9 /* DossierClientScanViewController.swift */,
 				ECC0DB181F95F7DC009A88A9 /* DossierClientFormulaireViewController.swift */,
+				EC854C231F97367E00B84D28 /* GoogleGeoCodingHelper.swift */,
 			);
 			path = immoapp2;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				EC4107C41F8D0A3200F8FF33 /* DetailBienImmoWithPicsViewController.swift in Sources */,
 				ECE35CB51F8661E000D88BDB /* MyIOSHelper.swift in Sources */,
+				EC854C241F97367E00B84D28 /* GoogleGeoCodingHelper.swift in Sources */,
 				EC7D63281F83CA2800586292 /* testViewController.swift in Sources */,
 				EC7D63261F83CA2800586292 /* AppDelegate.swift in Sources */,
 				ECE35CB71F87896A00D88BDB /* MapViewController.swift in Sources */,
