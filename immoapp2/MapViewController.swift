@@ -48,7 +48,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDel
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         self.addPins()
-        
+        self.setupGestureRecognizer()
         self.activityIndicator.hidesWhenStopped = true
         self.progressView.setProgress(0, animated: true)
     }
@@ -480,5 +480,17 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             mapView.fitMapViewToAnnotationList()
             
     }
+//MARK:- GESTURE RECOGNIZER
+    func setupGestureRecognizer() {
+        let tripleTap = UITapGestureRecognizer(target: self, action: #selector(handleTripleTap(_:)))
+        tripleTap.numberOfTapsRequired = 3
+        mapView.addGestureRecognizer(tripleTap)
+    }
+    
+    func handleTripleTap(_ recognizer: UITapGestureRecognizer) {
+        
+        mapView.fitMapViewToAnnotationList()
+    }
 
+    
 }

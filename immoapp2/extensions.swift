@@ -168,7 +168,7 @@ class MKBienImmoAnnotationView: MKAnnotationView {
 }
 extension MKMapView{
     func fitMapViewToAnnotationList() -> Void {
-        let mapEdgePadding = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        let mapEdgePadding = UIEdgeInsets(top: 40, left: 20, bottom: 20, right: 20)
         var zoomRect:MKMapRect = MKMapRectNull
         
         for index in 0..<self.annotations.count {
