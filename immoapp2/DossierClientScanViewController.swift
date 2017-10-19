@@ -147,7 +147,7 @@ class DossierClientScanViewController: UIViewController ,UINavigationControllerD
         //scrollView.setNeedsDisplay()
        
         if let listeimage = self.images {
-        
+       // appendUIIMageToScrollView()
         self.scrollView.populateScrollView(images: listeimage,mode: UIViewContentMode.scaleAspectFit)
         //scroll to last scan
         scrollView.scrollToRight(animation: true)

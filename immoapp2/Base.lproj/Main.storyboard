@@ -85,7 +85,7 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bd5-fs-A9W">
                                 <rect key="frame" x="104" y="367" width="206" height="2"/>
                             </progressView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="93P-UV-KRc">
+                            <segmentedControl opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="93P-UV-KRc">
                                 <rect key="frame" x="101.66666666666669" y="79" width="212" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -250,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rok-Dy-bBc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4393" y="-82"/>
+            <point key="canvasLocation" x="6004" y="-82"/>
         </scene>
         <!--Detail Bien Immo With Pics View Controller-->
         <scene sceneID="kl7-Ae-d2T">
@@ -365,7 +365,7 @@
         <!--Dossier Client Segment View Controller-->
         <scene sceneID="ztx-rE-bBE">
             <objects>
-                <viewController id="12A-KC-ajk" customClass="DossierClientSegmentViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="12A-KC-ajk" customClass="DossierClientSegmentViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oYU-FP-GEb"/>
                         <viewControllerLayoutGuide type="bottom" id="PhK-ef-SG7"/>
@@ -378,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r8q-dX-CGd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3665" y="-82"/>
+            <point key="canvasLocation" x="3600" y="-82"/>
         </scene>
         <!--App Login View Controller-->
         <scene sceneID="BwW-wa-51E">
@@ -420,12 +420,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ry6-3o-TiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2786.9565217391305" y="838.04347826086962"/>
+            <point key="canvasLocation" x="7204" y="-82"/>
         </scene>
         <!--Dossier Client Formulaire View Controller-->
         <scene sceneID="2rw-6o-JRz">
             <objects>
-                <viewController storyboardIdentifier="formulaireClientVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BO2-yv-zpS" customClass="DossierClientFormulaireViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="formulaireClientVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BO2-yv-zpS" customClass="DossierClientFormulaireViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WBK-YP-IUa"/>
                         <viewControllerLayoutGuide type="bottom" id="hP6-Sl-uSo"/>
@@ -434,49 +434,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fsT-Tf-8VL">
-                                <rect key="frame" x="0.66666666666665719" y="147" width="414" height="173"/>
+                            <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsT-Tf-8VL">
+                                <rect key="frame" x="-0.33333333333334281" y="110" width="414.66666666666663" height="626"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-Fd-gpk">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="135"/>
+                                    <stackView opaque="NO" contentMode="top" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-Fd-gpk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414.66666666666663" height="135"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNr-s9-uew">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="249" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xNr-s9-uew">
+                                                <rect key="frame" x="0.0" y="0.0" width="414.66666666666663" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Dg-35-fDi">
-                                                <rect key="frame" x="0.0" y="35" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="35" width="414.66666666666663" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5OH-mb-mU3">
-                                                <rect key="frame" x="0.0" y="70" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="70" width="414.66666666666663" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19Z-fy-GWy">
-                                                <rect key="frame" x="0.0" y="105" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="105" width="414.66666666666663" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Wrx-Fd-gpk" firstAttribute="width" secondItem="fsT-Tf-8VL" secondAttribute="width" id="9gn-gq-Mo7"/>
-                                    <constraint firstAttribute="bottom" secondItem="Wrx-Fd-gpk" secondAttribute="bottom" id="Jpm-RH-0Uy"/>
-                                    <constraint firstAttribute="trailing" secondItem="Wrx-Fd-gpk" secondAttribute="trailing" constant="264" id="NFi-aB-sDV" userLabel="trailing = Stack View.trailing "/>
+                                    <constraint firstItem="Wrx-Fd-gpk" firstAttribute="leading" secondItem="fsT-Tf-8VL" secondAttribute="leading" id="SPo-ce-E25"/>
                                     <constraint firstItem="Wrx-Fd-gpk" firstAttribute="top" secondItem="fsT-Tf-8VL" secondAttribute="top" id="TqT-8w-W84"/>
-                                    <constraint firstItem="Wrx-Fd-gpk" firstAttribute="leading" secondItem="fsT-Tf-8VL" secondAttribute="leading" id="fdq-pq-NXH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wrx-Fd-gpk" secondAttribute="trailing" id="co2-Vs-uw6"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wrx-Fd-gpk" secondAttribute="bottom" constant="446" id="jaL-ux-zbj"/>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AyE-7g-9PN">
-                                <rect key="frame" x="148" y="68" width="119" height="30"/>
+                                <rect key="frame" x="126.66666666666669" y="50" width="161" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Enregistrer Client">
                                     <color key="titleColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -487,11 +488,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hP6-Sl-uSo" firstAttribute="top" secondItem="fsT-Tf-8VL" secondAttribute="bottom" constant="416" id="Waa-Ow-GiK"/>
+                            <constraint firstItem="fsT-Tf-8VL" firstAttribute="centerX" secondItem="AyE-7g-9PN" secondAttribute="centerX" id="Ojn-pG-aiG"/>
+                            <constraint firstItem="hP6-Sl-uSo" firstAttribute="top" secondItem="fsT-Tf-8VL" secondAttribute="bottom" id="dVl-gE-WAL"/>
                             <constraint firstItem="AyE-7g-9PN" firstAttribute="centerX" secondItem="N14-xM-k6s" secondAttribute="centerX" id="lCv-2q-0MS"/>
-                            <constraint firstItem="AyE-7g-9PN" firstAttribute="top" secondItem="WBK-YP-IUa" secondAttribute="bottom" constant="48" id="m60-d2-Usg"/>
-                            <constraint firstItem="fsT-Tf-8VL" firstAttribute="top" secondItem="WBK-YP-IUa" secondAttribute="bottom" constant="127" id="msD-xr-nnU"/>
-                            <constraint firstItem="fsT-Tf-8VL" firstAttribute="centerX" secondItem="N14-xM-k6s" secondAttribute="centerX" id="vHs-0X-oeH"/>
+                            <constraint firstItem="AyE-7g-9PN" firstAttribute="top" secondItem="WBK-YP-IUa" secondAttribute="bottom" constant="30" id="m60-d2-Usg"/>
+                            <constraint firstItem="fsT-Tf-8VL" firstAttribute="top" secondItem="AyE-7g-9PN" secondAttribute="bottom" constant="22" id="r99-s2-EIW"/>
                             <constraint firstItem="fsT-Tf-8VL" firstAttribute="width" secondItem="N14-xM-k6s" secondAttribute="width" id="yBX-gK-Czj" userLabel="Scroll View.width = width * 0.6"/>
                         </constraints>
                     </view>
@@ -502,16 +503,17 @@
                         <outlet property="formScrollView" destination="fsT-Tf-8VL" id="n1y-rc-nT3"/>
                         <outlet property="nameTextField" destination="xNr-s9-uew" id="iMG-3G-i4e"/>
                         <outlet property="phoneTextField" destination="5OH-mb-mU3" id="ZDC-KW-SmU"/>
+                        <outlet property="stackView" destination="Wrx-Fd-gpk" id="0rQ-5y-mFW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ASx-09-pBY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4037.68115942029" y="678.26086956521749"/>
+            <point key="canvasLocation" x="4455" y="-82"/>
         </scene>
         <!--Dossier Client Scan View Controller-->
         <scene sceneID="Y5m-iR-2OU">
             <objects>
-                <viewController storyboardIdentifier="scanClientVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vll-iy-3q3" customClass="DossierClientScanViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scanClientVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vll-iy-3q3" customClass="DossierClientScanViewController" customModule="immoapp2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ihd-FN-nbf"/>
                         <viewControllerLayoutGuide type="bottom" id="Wwm-3S-SMo"/>
@@ -520,14 +522,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw4-C5-i3n">
-                                <rect key="frame" x="66" y="62" width="282" height="275"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw4-C5-i3n">
+                                <rect key="frame" x="66" y="45" width="282" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="jt6-I9-k5S"/>
+                                    <constraint firstAttribute="height" constant="275" id="rb4-JM-9Kx"/>
+                                </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTm-nW-qaa">
-                                <rect key="frame" x="171" y="385" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Scan">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTm-nW-qaa">
+                                <rect key="frame" x="120" y="662" width="175" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Ajouter Scan">
                                     <color key="titleColor" red="1" green="0.48712584520000002" blue="0.15397524269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -536,6 +541,12 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Wwm-3S-SMo" firstAttribute="top" secondItem="HTm-nW-qaa" secondAttribute="bottom" constant="25" id="Fgm-uQ-xxC"/>
+                            <constraint firstItem="xw4-C5-i3n" firstAttribute="top" secondItem="ihd-FN-nbf" secondAttribute="bottom" constant="25" id="Lpt-5K-jcQ"/>
+                            <constraint firstItem="xw4-C5-i3n" firstAttribute="centerX" secondItem="P8p-bF-taU" secondAttribute="centerX" id="UPg-u2-1Uy"/>
+                            <constraint firstItem="HTm-nW-qaa" firstAttribute="centerX" secondItem="P8p-bF-taU" secondAttribute="centerX" id="yMl-rd-40X"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="scanButton" destination="HTm-nW-qaa" id="AH3-ZT-o90"/>
@@ -544,7 +555,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mSi-qw-uFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4789.8550724637689" y="708.42391304347836"/>
+            <point key="canvasLocation" x="5207" y="-82"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Rhk-i8-y1B">
@@ -573,7 +584,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYO-lh-4bI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2054" y="838"/>
+            <point key="canvasLocation" x="8141" y="-82"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y4J-O7-IlV">

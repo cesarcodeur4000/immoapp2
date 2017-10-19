@@ -91,6 +91,58 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EC06C6491F98AE0F0052E4AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EC1CA8E11F8B9DB900D50145 /* extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		EC06C64A1F98AE230052E4AD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECE35CB61F87896A00D88BDB /* MapViewController.swift */,
+				EC4107C31F8D0A3100F8FF33 /* DetailBienImmoWithPicsViewController.swift */,
+				EC3BDC4D1F8627A800F6A5EB /* AppLoginViewController.swift */,
+				ECC0DB141F95F2BD009A88A9 /* DossierClientSegmentViewController.swift */,
+				ECC0DB161F95F7C5009A88A9 /* DossierClientScanViewController.swift */,
+				ECC0DB181F95F7DC009A88A9 /* DossierClientFormulaireViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		EC06C64B1F98AE410052E4AD /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				EC7D63371F83CF1A00586292 /* Constants.swift */,
+				ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */,
+				EC854C231F97367E00B84D28 /* GoogleGeoCodingHelper.swift */,
+				EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */,
+				EC47CD4B1F8B624600E73AC7 /* String+Util.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		EC06C64C1F98AE810052E4AD /* Modele */ = {
+			isa = PBXGroup;
+			children = (
+				EC7D63391F83D08800586292 /* Models.swift */,
+			);
+			name = Modele;
+			sourceTree = "<group>";
+		};
+		EC06C64E1F98AFB60052E4AD /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */,
+				EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */,
+				EC1CA8DF1F8B7E9B00D50145 /* DossierClientViewController.swift */,
+				EC7D63271F83CA2800586292 /* testViewController.swift */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		EC7D63191F83CA2800586292 = {
 			isa = PBXGroup;
 			children = (
@@ -112,29 +164,17 @@
 		EC7D63241F83CA2800586292 /* immoapp2 */ = {
 			isa = PBXGroup;
 			children = (
+				EC06C64C1F98AE810052E4AD /* Modele */,
+				EC06C64B1F98AE410052E4AD /* Helpers */,
+				EC06C64A1F98AE230052E4AD /* Controllers */,
+				EC06C6491F98AE0F0052E4AD /* Extensions */,
 				EC7D63251F83CA2800586292 /* AppDelegate.swift */,
-				EC7D63271F83CA2800586292 /* testViewController.swift */,
 				EC7D63291F83CA2800586292 /* Main.storyboard */,
 				EC7D632C1F83CA2800586292 /* Assets.xcassets */,
 				EC7D632E1F83CA2800586292 /* LaunchScreen.storyboard */,
 				EC7D63311F83CA2800586292 /* Info.plist */,
-				EC7D63371F83CF1A00586292 /* Constants.swift */,
-				EC7D63391F83D08800586292 /* Models.swift */,
-				EC3BDC4D1F8627A800F6A5EB /* AppLoginViewController.swift */,
-				EC3BDC4F1F862AEA00F6A5EB /* MainViewController.swift */,
-				EC3BDC511F86453F00F6A5EB /* Main1ViewController.swift */,
-				EC3BDC531F86592A00F6A5EB /* RealmHelper.swift */,
-				ECE35CB41F8661E000D88BDB /* MyIOSHelper.swift */,
-				ECE35CB61F87896A00D88BDB /* MapViewController.swift */,
-				EC47CD4B1F8B624600E73AC7 /* String+Util.swift */,
 				EC47CD4D1F8B626800E73AC7 /* Localizable.strings */,
-				EC1CA8DF1F8B7E9B00D50145 /* DossierClientViewController.swift */,
-				EC1CA8E11F8B9DB900D50145 /* extensions.swift */,
-				EC4107C31F8D0A3100F8FF33 /* DetailBienImmoWithPicsViewController.swift */,
-				ECC0DB141F95F2BD009A88A9 /* DossierClientSegmentViewController.swift */,
-				ECC0DB161F95F7C5009A88A9 /* DossierClientScanViewController.swift */,
-				ECC0DB181F95F7DC009A88A9 /* DossierClientFormulaireViewController.swift */,
-				EC854C231F97367E00B84D28 /* GoogleGeoCodingHelper.swift */,
+				EC06C64E1F98AFB60052E4AD /* Test */,
 			);
 			path = immoapp2;
 			sourceTree = "<group>";

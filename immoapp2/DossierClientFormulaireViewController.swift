@@ -14,6 +14,7 @@ class DossierClientFormulaireViewController: UIViewController {
     @IBOutlet weak var formScrollView: UIScrollView!
     
     
+    @IBOutlet weak var stackView: UIStackView!
     
     @IBOutlet weak var addclientButton: UIButton!
     @IBOutlet weak var nameTextField: UITextField!
@@ -49,16 +50,21 @@ class DossierClientFormulaireViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:NSNotification.Name.UIKeyboardWillHide, object: nil)
-
-        
+        //self.formScrollView.scrollToTop()
+        self.automaticallyAdjustsScrollViewInsets = false
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        formScrollView.layoutIfNeeded()
+        formScrollView.contentSize = stackView.bounds.size
+    }
+ 
     /*
     // MARK: - Navigation
 
@@ -88,6 +94,23 @@ class DossierClientFormulaireViewController: UIViewController {
     
     
     @IBAction func addclientAction(_ sender: Any) {
+        
+        
+        //verifier les champs du formulaire avant écriture
+        
+        let formulaire_correct = verification_formulaire()
+        if formulaire_correct == true{
+            
+            ajouter_dossier()
+        }
+    }
+        //ajouter enregistrement
+        
+    func  ajouter_dossier(){
+        
+        
+        
+    
         
         let realm = try! Realm()
         
@@ -137,6 +160,26 @@ class DossierClientFormulaireViewController: UIViewController {
         
     }
     
+    
+    func verification_formulaire()->Bool
+    {
+        //si le champ nom est non vide
+        
+        guard self.nameTextField.text != ""
+            else{
+                self.showMessage(title: "Erreur Formulaire", message: "Un nom doit être fourni")
+                return false}
+        //si l'email est valide
+        
+        guard self.emailTextField.text?.isValidEmail() == true
+            else{
+                 self.showMessage(title: "Erreur Formulaire", message: "Email Non Valide")
+                return false}
+        return true
+    }
+    
+    
+    //effacement des champs du formulaire apres enregistrement
     func clearFormulaire(){
         
         nameTextField.text = ""
